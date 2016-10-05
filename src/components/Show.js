@@ -2,12 +2,14 @@ import React, { Component, PropTypes } from 'react';
 import { StyleSheet, View, Text, TextInput, TouchableOpacity, Image, ScrollView } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import ReservationImage from '../common/ReservationImage';
+import DatePicker from 'react-native-datepicker';
 
 const styles = StyleSheet.create({
   scrollView: {
     flex: 1,
     marginTop: 60,
     backgroundColor: '#F9F5ED',
+    paddingBottom: 30,
   },
   container: {
     flex: 1,
@@ -21,12 +23,17 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end',
     alignItems: 'center',
   },
-  footer: {
+  body: {
     paddingLeft: 10,
     paddingTop: 10,
     alignSelf: 'stretch',
     justifyContent: 'flex-start',
     alignItems: 'flex-start',
+  },
+  footer: {
+    paddingTop: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   name: {
     fontSize: 20,
@@ -68,6 +75,9 @@ const styles = StyleSheet.create({
 class Show extends Component {
   constructor() {
     super();
+    this.state = {
+      datetime: '',
+    };
   }
   render() {
     return (
@@ -76,9 +86,9 @@ class Show extends Component {
         showsVerticalScrollIndicator={false}
       >
         <View style={styles.header}>
-          <ReservationImage image={this.props.item.image} />
+          <ReservationImage image={this.props.item.image} onPress={()=> Actions.reservation({item: this.props.item})} />
         </View>
-        <View style={styles.footer}>
+        <View style={styles.body}>
           <Text style={styles.name}>{this.props.item.name}</Text>
           <Text style={styles.type}>{this.props.item.type}</Text>
           <Text style={styles.section}>* Address *</Text>
