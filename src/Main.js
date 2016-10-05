@@ -13,6 +13,7 @@ import Authentication from './components/Authentication/Authentication';
 import Signup from './components/Authentication/Signup';
 import Login from './components/Authentication/Login';
 import Help from './components/Help';
+import Show from './components/Show';
 import Home from './components/Home';
 import Experiences from './components/Categories/Experiences';
 import Shopping from './components/Categories/Shopping';
@@ -94,6 +95,7 @@ class Main extends Component {
           <Scene key="signup" component={Signup} direction="vertical" title='Sign Up' hideNavBar={false} hideBackImage={true} backTitle={'CANCEL'} navigationBarStyle={styles.navBar} backButtonTextStyle={styles.backButton} titleStyle={styles.title}/>
           <Scene key="login" component={Login} direction="vertical" title='Login' hideNavBar={false} hideBackImage={true} backTitle={'CANCEL'} navigationBarStyle={styles.navBar} backButtonTextStyle={styles.backButton} titleStyle={styles.title}/>
           <Scene key="help" direction="vertical" component={Help} title='Help' hideNavBar={false} backButtonImage={require('./assets/hamburger.png')} onBack={()=> Actions.authentication()} rightButtonImage={require('./assets/close.png')} onRight={()=> Actions.pop()} leftButtonStyle={styles.navbarButton} rightButtonIconStyle={styles.closeButton} navigationBarStyle={styles.navBar} titleStyle={styles.homeTitle}/>
+          <Scene key="show" component={Show} title='Info' hideNavBar={false} navigationBarStyle={styles.navBar} backButtonImage={require('./assets/back.png')} leftButtonStyle={styles.navbarButton} titleStyle={styles.title} rightButtonImage={require('./assets/butler.png')} onRight={()=> Actions.help()} rightButtonIconStyle={styles.navbarButton}/>
           <Scene key="home" direction="vertical" panHandlers={null} component={Home} title='PROVIDENCE' hideNavBar={false} backButtonImage={require('./assets/hamburger.png')} onBack={()=> Actions.home()} leftButtonStyle={styles.navbarButton} rightButtonImage={require('./assets/butler.png')} onRight={()=> Actions.help()} rightButtonIconStyle={styles.navbarButton} navigationBarStyle={styles.navBar} titleStyle={styles.homeTitle}/>
           <Scene key="experiences" component={Experiences} title='Experiences' hideNavBar={false} navigationBarStyle={styles.navBar} backButtonImage={require('./assets/back.png')} leftButtonStyle={styles.navbarButton} titleStyle={styles.title} rightButtonImage={require('./assets/butler.png')} onRight={()=> Actions.help()} rightButtonIconStyle={styles.navbarButton} />
           <Scene key="shopping" component={Shopping} title='Shopping' hideNavBar={false} navigationBarStyle={styles.navBar} backButtonImage={require('./assets/back.png')} leftButtonStyle={styles.navbarButton} titleStyle={styles.title} rightButtonImage={require('./assets/butler.png')} onRight={()=> Actions.help()} rightButtonIconStyle={styles.navbarButton} />

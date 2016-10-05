@@ -102,7 +102,7 @@ class Login extends Component {
           autoFocus={true}
           autoCapitalize="none"
           placeholder={"Email address"}
-          placeholderTextColor="#C2C1C1"
+          placeholderTextColor="#D0BA7F"
           onChangeText={this.updateEmail}
           value={this.state.email}
           returnKeyType={"next"}
@@ -115,7 +115,7 @@ class Login extends Component {
           secureTextEntry
           style={formStyles.input}
           placeholder={"Password"}
-          placeholderTextColor="#C2C1C1"
+          placeholderTextColor="#D0BA7F"
           onChangeText={this.updatePassword}
           value={this.state.password}
           onSubmitEditing={this.onLoginPress}

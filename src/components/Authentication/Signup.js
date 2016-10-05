@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
     color: 'white',
     fontSize: 10,
   },
-  loginButton: {
+  signupButton: {
     marginTop: 20,
     justifyContent: 'center',
     alignItems: 'center',
@@ -113,7 +113,7 @@ class Signup extends Component {
           style={formStyles.input}
           autoCapitalize="none"
           placeholder={"Email address"}
-          placeholderTextColor="#C2C1C1"
+          placeholderTextColor="#D0BA7F"
           onChangeText={this.updateEmail}
           value={this.state.email}
           returnKeyType="next"
@@ -126,7 +126,7 @@ class Signup extends Component {
           secureTextEntry
           style={formStyles.input}
           placeholder={"Password"}
-          placeholderTextColor="#C2C1C1"
+          placeholderTextColor="#D0BA7F"
           onChangeText={this.updatePassword}
           value={this.state.password}
           onSubmitEditing={() => {
@@ -139,13 +139,13 @@ class Signup extends Component {
           secureTextEntry
           style={formStyles.input}
           placeholder={"Password Confirmation"}
-          placeholderTextColor="#C2C1C1"
+          placeholderTextColor="#D0BA7F"
             value={this.state.passwordConfirmation}
             onChangeText={this.updatePasswordConfirmation}
             onSubmitEditing={this.onSignupPress}
             returnKeyType="done"
         />
-        <Button onPress={this.onLoginPress} buttonStyle={styles.loginButton} text={'SIGN UP'} textStyle={styles.loginTextStyle} />
+        <Button onPress={this.onLoginPress} buttonStyle={styles.signupButton} text={'SIGN UP'} textStyle={styles.loginTextStyle} />
       </View>
     );
   }
