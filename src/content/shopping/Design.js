@@ -9,7 +9,7 @@ export default [
     starter: '19€',
     main: '32€',
     dessert: '17€',
-    price: '€€'
+    price: '€€',
   },
   {
     name: 'Hello Hello Burger',

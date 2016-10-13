@@ -1,22 +1,18 @@
 import React, { Component, PropTypes } from 'react';
-import { StyleSheet, View, Text, ScrollView, TouchableWithoutFeedback, Dimensions } from 'react-native';
+import { StyleSheet, View, Text, ScrollView, TextInput, TouchableWithoutFeedback, TouchableOpacity, Dimensions } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import Category from '../common/Category';
+import formStyles from './FormStyles';
 import DatePicker from 'react-native-datepicker';
+import Communications from 'react-native-communications';
 
 const styles = StyleSheet.create({
   scrollView: {
     flex: 1,
     marginTop: 60,
-    backgroundColor: '#F9F5ED',
   },
   container: {
     flex: 1,
-    alignSelf: 'stretch',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  header: {
     alignSelf: 'stretch',
     justifyContent: 'flex-end',
     alignItems: 'center',
@@ -27,7 +23,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     flexWrap: 'wrap',
-    marginTop: 20,
   },
   option: {
     height: Dimensions.get('window').width / 6,
@@ -81,7 +76,8 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: '#D0BA7F',
     fontStyle: 'italic',
-    marginTop: 20,
+    marginTop: 30,
+    marginBottom: 20,
   },
   button: {
     width: 130,
@@ -93,6 +89,18 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  submit: {
+    height: Dimensions.get('window').height / 12,
+    width: Dimensions.get('window').width,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#ce9402',
+  },
+  submitText: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: '#F9F5ED',
+  },
 });
 
 class Reservation extends Component {
@@ -100,11 +108,16 @@ class Reservation extends Component {
     super();
     this.state = {
       datetime: '',
+      name: '',
       attendees: '',
       dateColor: '#D0BA7F',
     };
 
     this.renderOptions = this.renderOptions.bind(this);
+    this.updateName = this.updateName.bind(this);
+  }
+  updateName(text) {
+    this.setState({ name: text });
   }
   renderOptions(options) {
     return options.map(function(option) {
@@ -129,15 +142,27 @@ class Reservation extends Component {
   }
   render() {
     return (
-      <ScrollView
-        style={styles.scrollView}
-        showsVerticalScrollIndicator={false}
-      >
-        <View style={styles.container}>
-          <View style={styles.header}>
-            <Category image={this.props.item.image} text={this.props.item.name} />
-          </View>
-          <View style={styles.body}>
+      <View style={styles.container}>
+        <ScrollView
+          style={styles.scrollView}
+          showsVerticalScrollIndicator={false}
+        >
+          <View style={styles.container}>
+            <Text style={styles.section}>Please enter a reservation name</Text>
+            <TextInput
+              autoCorrect={false}
+              style={formStyles.input}
+              autoFocus={true}
+              color="#D0BA7F"
+              placeholder={"Your name"}
+              placeholderTextColor="#D0BA7F"
+              onChangeText={this.updateName}
+              value={this.state.name}
+              // returnKeyType={"next"}
+              // onSubmitEditing={() => {
+              //   this.refs.SecondInput.focus();
+              // }}
+            />
             <Text style={styles.section}>Please select the number of attendees</Text>
             <View style={styles.options}>
               {this.renderOptions([1, 2, 3, 4, 5, 6, 7, 8])}
@@ -153,17 +178,13 @@ class Reservation extends Component {
               showIcon={false}
               customStyles={{
                 dateInput: {
-                  borderColor: '#D0BA7F',
-                  backgroundColor: this.state.dateColor,
+                  borderColor: this.state.dateColor,
+                  backgroundColor: '#F9F5ED',
                   height: 50,
-                  marginTop: 70,
-                },
-                 btnTextText: {
-                  fontSize: 16,
-                  color: '#D0BA7F'
+                  marginTop: 20
                 },
                 dateText: {
-                  color: '#F9F5ED',
+                  color: this.state.dateColor,
                   fontSize: 20,
                   fontWeight: 'bold'
                 },
@@ -171,8 +192,22 @@ class Reservation extends Component {
               onDateChange={(datetime) => {this.setState({datetime: datetime, dateColor: '#ce9402'});}}
             />
           </View>
-        </View>
-      </ScrollView>
+        </ScrollView>
+        {this.state.attendees !== '' && this.state.dateColor !== '#D0BA7F' && this.state.name !== '' &&
+          <TouchableOpacity
+            style={styles.submit}
+            onPress={() => Communications.text('0660492163', 'RESERVATION\n' + this.props.item.name + '\nName: ' + this.state.name +'\nAttendees: ' + this.state.attendees + '\nTime: ' + this.state.datetime)}
+          >
+            <View style={styles.submit}>
+              <View style={styles.backdropView}>
+                <Text style={styles.submitText}>
+                  SUBMIT
+                </Text>
+              </View>
+            </View>
+          </TouchableOpacity>
+        }
+      </View>
     );
   }
 }

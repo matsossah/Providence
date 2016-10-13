@@ -4,7 +4,7 @@ import firebase from 'firebase';
 import formStyles from '../FormStyles';
 import Button from '../../common/Button';
 import { Actions } from 'react-native-router-flux';
-import KidsList from '../../content/experiences/Kids';
+import MenList from '../../content/shopping/Men';
 import List from '../../common/List';
 
 const styles = StyleSheet.create({
@@ -15,17 +15,17 @@ const styles = StyleSheet.create({
   },
 });
 
-class Kids extends Component {
+class Men extends Component {
   render() {
     return (
-      <List items={KidsList} />
+      <List items={MenList} />
     );
   }
 }
 
-// Kids.propTypes = {
+// Men.propTypes = {
 //   onError: PropTypes.func.isRequired,
 //   onExperiences: PropTypes.func.isRequired,
 // };
 
-export default Kids;
+export default Men;

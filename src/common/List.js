@@ -22,7 +22,7 @@ class List extends Component {
   renderList(items) {
     return items.map(function(item) {
       return(
-        <ListItem title={item.name} price={item.price} address={item.address} image={item.image} onPress={()=> Actions.show({item: item})}/>
+        <ListItem title={item.title} price={item.price_tag} address={item.address} image={item.image} onPress={()=> Actions.show({item: item})}/>
       );
     });
   }

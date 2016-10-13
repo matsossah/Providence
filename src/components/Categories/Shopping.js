@@ -29,13 +29,16 @@ class Shopping extends Component {
         style={styles.scrollView}
         showsVerticalScrollIndicator={false}
       >
+        <Category text="MULTIBRANDS" image={require('../../assets/luxury.png')} onPress={()=> Actions.multibrands()}/>
+        <Category text="MEN ONLY" image={require('../../assets/men.png')} onPress={()=> Actions.men()}/>
         <Category text="CONCEPT STORES" image={require('../../assets/concept.png')} onPress={()=> Actions.concept()}/>
         <Category text="TECH LOVERS" image={require('../../assets/tech.png')} onPress={()=> Actions.tech()}/>
-        <Category text="ART & DESIGN" image={require('../../assets/design.png')} onPress={()=> Actions.design()}/>
-        <Category text="PRIVATE SHOPPING" image={require('../../assets/private.png')} onPress={()=> Actions.private()}/>
-        <Category text="LUXURY" image={require('../../assets/luxury.png')} onPress={()=> Actions.luxury()}/>
-        <Category text="KIDS" image={require('../../assets/kids.png')} onPress={()=> Actions.shopKids()}/>
-        <Category text="PETS" image={require('../../assets/pets.png')} onPress={()=> Actions.pets()}/>
+        {
+         //<Category text="PRIVATE SHOPPING" image={require('../../assets/private.png')} onPress={()=> Actions.private()}/>
+         //<Category text="ART & DESIGN" image={require('../../assets/design.png')} onPress={()=> Actions.design()}/>
+         //<Category text="KIDS" image={require('../../assets/kids.png')} onPress={()=> Actions.shopKids()}/>
+         //<Category text="PETS" image={require('../../assets/pets.png')} onPress={()=> Actions.pets()}/>
+        }
       </ScrollView>
     );
   }

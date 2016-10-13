@@ -38,21 +38,21 @@ const styles = StyleSheet.create({
 });
 
 function Category(props) {
-  const { image, text, onPress, icon, iconStyle, ...otherProps } = props;
+  const { image, text, onPress, icon, style, iconStyle, textStyle, ...otherProps } = props;
   return (
     <TouchableWithoutFeedback
       {...otherProps}
-      style={styles.category}
+      style={[styles.category].concat(style)}
       onPress={onPress}
     >
-      <View style={styles.category}>
+      <View style={[styles.category].concat(style)}>
         <Image
-          style={styles.categoryImage}
+          style={[styles.categoryImage].concat(style)}
           source={image}
         >
-          <View style={styles.backdropView}>
+          <View style={[styles.backdropView].concat(style)}>
           {icon && <Image style={[styles.icon].concat(iconStyle)} source={icon} />}
-            <Text style={styles.categoryTitle}>
+            <Text style={[styles.categoryTitle].concat(textStyle)}>
               {text}
             </Text>
           </View>
@@ -67,6 +67,8 @@ Category.propTypes = {
   icon: PropTypes.string,
   text: PropTypes.string.isRequired,
   onPress: PropTypes.func,
+  iconStyle: PropTypes.any,
+  textStyle: PropTypes.any,
   style: PropTypes.any,
 };
 

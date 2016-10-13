@@ -4,7 +4,7 @@ import firebase from 'firebase';
 import formStyles from '../FormStyles';
 import Button from '../../common/Button';
 import { Actions } from 'react-native-router-flux';
-import PhotographyList from '../../content/experiences/Photography';
+import ShowtimeList from '../../content/experiences/Showtime';
 import List from '../../common/List';
 
 const styles = StyleSheet.create({
@@ -15,17 +15,17 @@ const styles = StyleSheet.create({
   },
 });
 
-class Photography extends Component {
+class Showtime extends Component {
   render() {
     return (
-      <List items={PhotographyList} />
+      <List items={ShowtimeList} />
     );
   }
 }
 
-// Photography.propTypes = {
+// Showtime.propTypes = {
 //   onError: PropTypes.func.isRequired,
 //   onExperiences: PropTypes.func.isRequired,
 // };
 
-export default Photography;
+export default Showtime;

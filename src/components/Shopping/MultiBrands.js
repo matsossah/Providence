@@ -4,7 +4,7 @@ import firebase from 'firebase';
 import formStyles from '../FormStyles';
 import Button from '../../common/Button';
 import { Actions } from 'react-native-router-flux';
-import LuxuryList from '../../content/shopping/Luxury';
+import MultiBrandsList from '../../content/shopping/MultiBrands';
 import List from '../../common/List';
 
 const styles = StyleSheet.create({
@@ -15,17 +15,17 @@ const styles = StyleSheet.create({
   },
 });
 
-class Luxury extends Component {
+class MultiBrands extends Component {
   render() {
     return (
-      <List items={LuxuryList} />
+      <List items={MultiBrandsList} />
     );
   }
 }
 
-// Luxury.propTypes = {
+// MultiBrands.propTypes = {
 //   onError: PropTypes.func.isRequired,
 //   onExperiences: PropTypes.func.isRequired,
 // };
 
-export default Luxury;
+export default MultiBrands;
