@@ -103,7 +103,7 @@ class Show extends Component {
       >
         {this.props.item.reservation ?
           <View style={styles.header}>
-            <ReservationImage image={this.props.item.image} onPress={()=> Actions.reservation({item: this.props.item, title: this.props.item.title})} />
+            <ReservationImage image={this.props.item.image} onPress={()=> Actions.reservation({item: this.props.item, title: 'Reservation Info'})} />
           </View>
         :
           <View style={styles.header}>

@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import { StyleSheet, View, Text, TextInput, TouchableOpacity, Image } from 'react-native';
+import { StyleSheet, View, Text, TextInput, TouchableOpacity, Image, Dimensions } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import Signup from './Signup';
 import Login from './Login';
@@ -70,9 +70,9 @@ const styles = StyleSheet.create({
   image: {
     marginTop: 25,
     marginBottom: 15,
-    width: 220,
-    height: 220,
-    borderRadius: 110,
+    width: (Dimensions.get('window').height / 3),
+    height: (Dimensions.get('window').height / 3),
+    borderRadius: (Dimensions.get('window').height / 3) / 2,
   },
 });
 
