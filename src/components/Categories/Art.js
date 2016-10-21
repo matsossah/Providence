@@ -29,10 +29,10 @@ class Art extends Component {
         style={styles.scrollView}
         showsVerticalScrollIndicator={false}
       >
-        <Category text="MUSEUMS" image={require('../../assets/museums.png')} onPress={()=> Actions.museums()}/>
+        <Category text="MUST SEE MUSEUMS" image={require('../../assets/museums.png')} onPress={()=> Actions.museums()}/>
+        <Category text="SMALL YET AWESOME MUSEUMS" image={require('../../assets/corbusier.png')} onPress={()=> Actions.smallmuseums()}/>
         <Category text="GALLERIES" image={require('../../assets/galleries.png')} onPress={()=> Actions.galleries()}/>
         <Category text="WALKS & TALKS" image={require('../../assets/walks.png')} onPress={()=> Actions.walks()}/>
-        <Category text="CELEBRATIONS & FESTIVALS" image={require('../../assets/festivals.png')} onPress={()=> Actions.festivals()}/>
       </ScrollView>
     );
   }

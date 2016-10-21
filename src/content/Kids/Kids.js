@@ -12,7 +12,7 @@ export default [
   },
   {
     title: 'The Pompidou Center',
-    image: require('../../assets/pompidou.png'),
+    image: require('../../assets/pompidouKids.png'),
     subtitle: 'Visits for children only! Time for parents!',
     address: 'Place Georges Pompidou, 75004 Paris, France',
     opened: 'upon request',
@@ -23,7 +23,7 @@ export default [
   },
   {
     title: 'Musée d’Orsay',
-    image: require('../../assets/orsay.png'),
+    image: require('../../assets/orsayKids.png'),
     subtitle: 'Visits for children only! Time for parents!',
     address: '1, Rue de la Légion d\'Honneur, 75007 Paris',
     opened: 'upon request',

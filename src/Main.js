@@ -53,7 +53,7 @@ import Clubs from './components/Drinks/Clubs';
 import Museums from './components/Art/Museums';
 import Galleries from './components/Art/Galleries';
 import Walks from './components/Art/Walks';
-import Festivals from './components/Art/Festivals';
+import SmallMuseums from './components/Art/SmallMuseums';
 import NavigationDrawer from './components/NavigationDrawer';
 
 console.ignoredYellowBox = ['Warning'];
@@ -139,7 +139,7 @@ class Main extends Component {
           <Scene key="museums" component={Museums} title='Museums' hideNavBar={false} navigationBarStyle={styles.navBar} backButtonImage={require('./assets/back.png')} leftButtonStyle={styles.navbarButton} titleStyle={styles.title} rightButtonImage={require('./assets/butler.png')} onRight={()=> Actions.help()} rightButtonIconStyle={styles.navbarButton} />
           <Scene key="galleries" component={Galleries} title='Galleries' hideNavBar={false} navigationBarStyle={styles.navBar} backButtonImage={require('./assets/back.png')} leftButtonStyle={styles.navbarButton} titleStyle={styles.title} rightButtonImage={require('./assets/butler.png')} onRight={()=> Actions.help()} rightButtonIconStyle={styles.navbarButton} />
           <Scene key="walks" component={Walks} title='Walks & Talks' hideNavBar={false} navigationBarStyle={styles.navBar} backButtonImage={require('./assets/back.png')} leftButtonStyle={styles.navbarButton} titleStyle={styles.title} rightButtonImage={require('./assets/butler.png')} onRight={()=> Actions.help()} rightButtonIconStyle={styles.navbarButton} />
-          <Scene key="festivals" component={Festivals} title='Celebrations and Festivals' hideNavBar={false} navigationBarStyle={styles.navBar} backButtonImage={require('./assets/back.png')} leftButtonStyle={styles.navbarButton} titleStyle={styles.title} rightButtonImage={require('./assets/butler.png')} onRight={()=> Actions.help()} rightButtonIconStyle={styles.navbarButton} />
+          <Scene key="smallmuseums" component={SmallMuseums} title='Small Yet Awesome' hideNavBar={false} navigationBarStyle={styles.navBar} backButtonImage={require('./assets/back.png')} leftButtonStyle={styles.navbarButton} titleStyle={styles.title} rightButtonImage={require('./assets/butler.png')} onRight={()=> Actions.help()} rightButtonIconStyle={styles.navbarButton} />
         </Scene>
       </Router>
     );

@@ -1,50 +1,14 @@
 export default [
   {
-    name: 'Restaurant du Palais Royal',
-    image: require('../../assets/museums.png'),
-    type: 'French Food',
-    address: '110 galerie de Valois - 75001 Paris',
-    Opened: 'Tuesday to Saturday\nLunch from Noon to 2:30PM\nDinner from 7PM to 10:30PM',
-    description: 'Gallic gastronomy, a nimble inventiveness, resplendent grandeur and a tangible passion; these are some of the marks of excellence that define this restaurant, along with six Michelin stars.',
-    starter: '19€',
-    main: '32€',
-    dessert: '17€',
-    price: '€€'
-  },
-  {
-    name: 'Hello Hello Burger',
-    image: require('../../assets/concept.png'),
-    type: 'French Food',
-    address: '110 galerie de Valois - 75001 Paris',
-    Opened: 'Tuesday to Saturday\nLunch from Noon to 2:30PM\nDinner from 7PM to 10:30PM',
-    description: 'Gallic gastronomy, a nimble inventiveness, resplendent grandeur and a tangible passion; these are some of the marks of excellence that define this restaurant, along with six Michelin stars.',
-    starter: '19€',
-    main: '32€',
-    dessert: '17€',
-    price: '€€€'
-  },
-  {
-    name: 'Restaurant du Palais Royal',
-    image: require('../../assets/museums.png'),
-    type: 'French Food',
-    address: '110 galerie de Valois - 75001 Paris',
-    Opened: 'Tuesday to Saturday\nLunch from Noon to 2:30PM\nDinner from 7PM to 10:30PM',
-    description: 'Gallic gastronomy, a nimble inventiveness, resplendent grandeur and a tangible passion; these are some of the marks of excellence that define this restaurant, along with six Michelin stars.',
-    starter: '19€',
-    main: '32€',
-    dessert: '17€',
-    price: '€€'
-  },
-  {
-    name: 'Hello Hello Burger',
-    image: require('../../assets/concept.png'),
-    type: 'French Food',
-    address: '110 galerie de Valois - 75001 Paris',
-    Opened: 'Tuesday to Saturday\nLunch from Noon to 2:30PM\nDinner from 7PM to 10:30PM',
-    description: 'Gallic gastronomy, a nimble inventiveness, resplendent grandeur and a tangible passion; these are some of the marks of excellence that define this restaurant, along with six Michelin stars.',
-    starter: '19€',
-    main: '32€',
-    dessert: '17€',
-    price: '€€€'
+    title: 'Les Jeudis Arty',
+    image: require('../../assets/arty.png'),
+    subtitle: 'Guided Tour',
+    address: 'Adress depending on the tour',
+    opened: 'Tuesday to Saturday between 11 am and 7pm',
+    description: '« Les Jeudis Arty » are opening for you the doors of the art galleries of le Marais district. Novice in art ? Choose the guided tour « Contemporary art 101 » You are starting your collection? The ” Collector’s ABC” visit is for you. A specific request ? Those arty-guides will organize a tailor-made tour according to your art tastes and what you are interested in. Duration of the visit : 1 hour and 30 minutes to 2 hours',
+    price: 'Guided tour up to 4 people : 200 €\nFrom 5 to 10 people maximum: 400 €',
+    price_tag: '€€',
+    reservation: true,
   },
 ];
+

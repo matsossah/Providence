@@ -4,7 +4,7 @@ import firebase from 'firebase';
 import formStyles from '../FormStyles';
 import Button from '../../common/Button';
 import { Actions } from 'react-native-router-flux';
-import FestivalsList from '../../content/art/Festivals';
+import SmallMuseumsList from '../../content/art/SmallMuseums';
 import List from '../../common/List';
 
 const styles = StyleSheet.create({
@@ -15,17 +15,17 @@ const styles = StyleSheet.create({
   },
 });
 
-class Festivals extends Component {
+class SmallMuseums extends Component {
   render() {
     return (
-      <List items={FestivalsList} />
+      <List items={SmallMuseumsList} />
     );
   }
 }
 
-// Festivals.propTypes = {
+// SmallMuseums.propTypes = {
 //   onError: PropTypes.func.isRequired,
 //   onExperiences: PropTypes.func.isRequired,
 // };
 
-export default Festivals;
+export default SmallMuseums;
