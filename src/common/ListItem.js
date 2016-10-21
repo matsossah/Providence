@@ -43,6 +43,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: 'rgba(0,0,0,0.5)',
+    borderBottomColor: '#D0BA7F',
+    borderBottomWidth: 2,
   },
   infoBox: {
     flex: 3,

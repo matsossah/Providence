@@ -30,12 +30,9 @@ class Experiences extends Component {
         showsVerticalScrollIndicator={false}
       >
         <Category text="WOW EFFECT" image={require('../../assets/wow.png')} onPress={()=> Actions.wow()}/>
-        <Category text="URBAN & UNDERGROUND" image={require('../../assets/urban.png')} onPress={()=> Actions.urban()}/>
         <Category text="FOOD LOVERS" image={require('../../assets/food-lover.png')} onPress={()=> Actions.foodLovers()}/>
-        <Category text="ART & CULTURE" image={require('../../assets/art.png')} onPress={()=> Actions.artCulture()}/>
-        <Category text="WITH KIDS" image={require('../../assets/with_kids.png')} onPress={()=> Actions.withKids()}/>
-        <Category text="SHOPPING" image={require('../../assets/shopping.png')} onPress={()=> Actions.expShopping()}/>
-        <Category text="PHOTOGRAPHY" image={require('../../assets/photography.png')} onPress={()=> Actions.photography()}/>
+        <Category text="URBAN & UNDERGROUND" image={require('../../assets/urban.png')} onPress={()=> Actions.urban()}/>
+        <Category text="SHOW TIME" image={require('../../assets/showtime.png')} onPress={()=> Actions.showtime()}/>
       </ScrollView>
     );
   }

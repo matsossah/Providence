@@ -13,21 +13,24 @@ import Authentication from './components/Authentication/Authentication';
 import Signup from './components/Authentication/Signup';
 import Login from './components/Authentication/Login';
 import Help from './components/Help';
+import Reservation from './components/Reservation';
 import Show from './components/Show';
 import Home from './components/Home';
+import HotelInfo from './components/Categories/HotelInfo';
 import Experiences from './components/Categories/Experiences';
 import Shopping from './components/Categories/Shopping';
 import Food from './components/Categories/Food';
 import Party from './components/Categories/Party';
 import Art from './components/Categories/Art';
 import Offers from './components/Categories/Offers';
+import About from './components/HotelInfo/About';
+import Bar from './components/HotelInfo/Bar';
 import Wow from './components/Experiences/Wow';
 import Urban from './components/Experiences/Urban';
 import FoodLovers from './components/Experiences/Food';
 import ArtCulture from './components/Experiences/Art';
-import WithKids from './components/Experiences/Kids';
-import ExpShopping from './components/Experiences/Shopping';
-import Photography from './components/Experiences/Photography';
+import WithKids from './components/Kids/Kids';
+import Showtime from './components/Experiences/Showtime';
 import Chefs from './components/Food/Chefs';
 import Chocolates from './components/Food/Chocolates';
 import Gluten from './components/Food/Gluten';
@@ -36,10 +39,11 @@ import Seafood from './components/Food/Seafood';
 import Street from './components/Food/Street';
 import Vibes from './components/Food/Vibes';
 import Concept from './components/Shopping/Concept';
+import Men from './components/Shopping/Men';
 import Tech from './components/Shopping/Tech';
 import Design from './components/Shopping/Design';
 import Private from './components/Shopping/Private';
-import Luxury from './components/Shopping/Luxury';
+import MultiBrands from './components/Shopping/MultiBrands';
 import ShopKids from './components/Shopping/Kids';
 import Pets from './components/Shopping/Pets';
 import Cocktails from './components/Drinks/Cocktails';
@@ -49,7 +53,7 @@ import Clubs from './components/Drinks/Clubs';
 import Museums from './components/Art/Museums';
 import Galleries from './components/Art/Galleries';
 import Walks from './components/Art/Walks';
-import Festivals from './components/Art/Festivals';
+import SmallMuseums from './components/Art/SmallMuseums';
 import NavigationDrawer from './components/NavigationDrawer';
 
 console.ignoredYellowBox = ['Warning'];
@@ -92,11 +96,15 @@ class Main extends Component {
       <Router>
         <Scene key="root">
           <Scene key="authentication" component={Authentication} hideNavBar={true}/>
-          <Scene key="signup" component={Signup} direction="vertical" title='Sign Up' hideNavBar={false} hideBackImage={true} backTitle={'CANCEL'} navigationBarStyle={styles.navBar} backButtonTextStyle={styles.backButton} titleStyle={styles.title}/>
-          <Scene key="login" component={Login} direction="vertical" title='Login' hideNavBar={false} hideBackImage={true} backTitle={'CANCEL'} navigationBarStyle={styles.navBar} backButtonTextStyle={styles.backButton} titleStyle={styles.title}/>
-          <Scene key="help" direction="vertical" component={Help} title='Help' hideNavBar={false} backButtonImage={require('./assets/hamburger.png')} onBack={()=> Actions.authentication()} rightButtonImage={require('./assets/close.png')} onRight={()=> Actions.pop()} leftButtonStyle={styles.navbarButton} rightButtonIconStyle={styles.closeButton} navigationBarStyle={styles.navBar} titleStyle={styles.homeTitle}/>
+          <Scene key="signup" component={Signup} panHandlers={null} direction="vertical" title='Sign Up' hideNavBar={false} hideBackImage={true} backTitle={'CANCEL'} navigationBarStyle={styles.navBar} backButtonTextStyle={styles.backButton} titleStyle={styles.title}/>
+          <Scene key="login" component={Login} panHandlers={null} direction="vertical" title='Login' hideNavBar={false} hideBackImage={true} backTitle={'CANCEL'} navigationBarStyle={styles.navBar} backButtonTextStyle={styles.backButton} titleStyle={styles.title}/>
+          <Scene key="help" direction="vertical" panHandlers={null} component={Help} title='Help' hideNavBar={false} backButtonImage={require('./assets/hamburger.png')} onBack={()=> Actions.authentication()} rightButtonImage={require('./assets/close.png')} onRight={()=> Actions.pop()} leftButtonStyle={styles.navbarButton} rightButtonIconStyle={styles.closeButton} navigationBarStyle={styles.navBar} titleStyle={styles.homeTitle}/>
+          <Scene key="reservation" direction="vertical" panHandlers={null} component={Reservation} title='Reservation' hideNavBar={false} backButtonImage={require('./assets/hamburger.png')} onBack={()=> Actions.authentication()} rightButtonImage={require('./assets/close.png')} onRight={()=> Actions.pop()} leftButtonStyle={styles.navbarButton} rightButtonIconStyle={styles.closeButton} navigationBarStyle={styles.navBar} titleStyle={styles.homeTitle}/>
           <Scene key="show" component={Show} title='Info' hideNavBar={false} navigationBarStyle={styles.navBar} backButtonImage={require('./assets/back.png')} leftButtonStyle={styles.navbarButton} titleStyle={styles.title} rightButtonImage={require('./assets/butler.png')} onRight={()=> Actions.help()} rightButtonIconStyle={styles.navbarButton}/>
           <Scene key="home" direction="vertical" panHandlers={null} component={Home} title='PROVIDENCE' hideNavBar={false} backButtonImage={require('./assets/hamburger.png')} onBack={()=> Actions.home()} leftButtonStyle={styles.navbarButton} rightButtonImage={require('./assets/butler.png')} onRight={()=> Actions.help()} rightButtonIconStyle={styles.navbarButton} navigationBarStyle={styles.navBar} titleStyle={styles.homeTitle}/>
+          <Scene key="hotelinfo" component={HotelInfo} title='Info & Services' hideNavBar={false} navigationBarStyle={styles.navBar} backButtonImage={require('./assets/back.png')} leftButtonStyle={styles.navbarButton} titleStyle={styles.title} rightButtonImage={require('./assets/butler.png')} onRight={()=> Actions.help()} rightButtonIconStyle={styles.navbarButton} />
+          <Scene key="about" component={About} title='About Us' hideNavBar={false} navigationBarStyle={styles.navBar} backButtonImage={require('./assets/back.png')} leftButtonStyle={styles.navbarButton} titleStyle={styles.title} rightButtonImage={require('./assets/butler.png')} onRight={()=> Actions.help()} rightButtonIconStyle={styles.navbarButton} />
+          <Scene key="bar" component={Bar} title='Bar & Restaurant' hideNavBar={false} navigationBarStyle={styles.navBar} backButtonImage={require('./assets/back.png')} leftButtonStyle={styles.navbarButton} titleStyle={styles.title} rightButtonImage={require('./assets/butler.png')} onRight={()=> Actions.help()} rightButtonIconStyle={styles.navbarButton} />
           <Scene key="experiences" component={Experiences} title='Experiences' hideNavBar={false} navigationBarStyle={styles.navBar} backButtonImage={require('./assets/back.png')} leftButtonStyle={styles.navbarButton} titleStyle={styles.title} rightButtonImage={require('./assets/butler.png')} onRight={()=> Actions.help()} rightButtonIconStyle={styles.navbarButton} />
           <Scene key="shopping" component={Shopping} title='Shopping' hideNavBar={false} navigationBarStyle={styles.navBar} backButtonImage={require('./assets/back.png')} leftButtonStyle={styles.navbarButton} titleStyle={styles.title} rightButtonImage={require('./assets/butler.png')} onRight={()=> Actions.help()} rightButtonIconStyle={styles.navbarButton} />
           <Scene key="food" component={Food} title='Food' hideNavBar={false} navigationBarStyle={styles.navBar} backButtonImage={require('./assets/back.png')} leftButtonStyle={styles.navbarButton} titleStyle={styles.title} rightButtonImage={require('./assets/butler.png')} onRight={()=> Actions.help()} rightButtonIconStyle={styles.navbarButton} />
@@ -115,13 +123,13 @@ class Main extends Component {
           <Scene key="foodLovers" component={FoodLovers} title='Food Lovers' hideNavBar={false} navigationBarStyle={styles.navBar} backButtonImage={require('./assets/back.png')} leftButtonStyle={styles.navbarButton} titleStyle={styles.title} rightButtonImage={require('./assets/butler.png')} onRight={()=> Actions.help()} rightButtonIconStyle={styles.navbarButton} />
           <Scene key="artCulture" component={ArtCulture} title='Art & Culture' hideNavBar={false} navigationBarStyle={styles.navBar} backButtonImage={require('./assets/back.png')} leftButtonStyle={styles.navbarButton} titleStyle={styles.title} rightButtonImage={require('./assets/butler.png')} onRight={()=> Actions.help()} rightButtonIconStyle={styles.navbarButton} />
           <Scene key="withKids" component={WithKids} title='With Kids' hideNavBar={false} navigationBarStyle={styles.navBar} backButtonImage={require('./assets/back.png')} leftButtonStyle={styles.navbarButton} titleStyle={styles.title} rightButtonImage={require('./assets/butler.png')} onRight={()=> Actions.help()} rightButtonIconStyle={styles.navbarButton} />
-          <Scene key="expShopping" component={ExpShopping} title='Shopping' hideNavBar={false} navigationBarStyle={styles.navBar} backButtonImage={require('./assets/back.png')} leftButtonStyle={styles.navbarButton} titleStyle={styles.title} rightButtonImage={require('./assets/butler.png')} onRight={()=> Actions.help()} rightButtonIconStyle={styles.navbarButton} />
-          <Scene key="photography" component={Photography} title='Photography' hideNavBar={false} navigationBarStyle={styles.navBar} backButtonImage={require('./assets/back.png')} leftButtonStyle={styles.navbarButton} titleStyle={styles.title} rightButtonImage={require('./assets/butler.png')} onRight={()=> Actions.help()} rightButtonIconStyle={styles.navbarButton} />
+          <Scene key="showtime" component={Showtime} title='Show Time' hideNavBar={false} navigationBarStyle={styles.navBar} backButtonImage={require('./assets/back.png')} leftButtonStyle={styles.navbarButton} titleStyle={styles.title} rightButtonImage={require('./assets/butler.png')} onRight={()=> Actions.help()} rightButtonIconStyle={styles.navbarButton} />
+          <Scene key="men" component={Men} title='Men Only' hideNavBar={false} navigationBarStyle={styles.navBar} backButtonImage={require('./assets/back.png')} leftButtonStyle={styles.navbarButton} titleStyle={styles.title} rightButtonImage={require('./assets/butler.png')} onRight={()=> Actions.help()} rightButtonIconStyle={styles.navbarButton} />
           <Scene key="concept" component={Concept} title='Concept Stores' hideNavBar={false} navigationBarStyle={styles.navBar} backButtonImage={require('./assets/back.png')} leftButtonStyle={styles.navbarButton} titleStyle={styles.title} rightButtonImage={require('./assets/butler.png')} onRight={()=> Actions.help()} rightButtonIconStyle={styles.navbarButton} />
           <Scene key="tech" component={Tech} title='Tech Lovers' hideNavBar={false} navigationBarStyle={styles.navBar} backButtonImage={require('./assets/back.png')} leftButtonStyle={styles.navbarButton} titleStyle={styles.title} rightButtonImage={require('./assets/butler.png')} onRight={()=> Actions.help()} rightButtonIconStyle={styles.navbarButton} />
           <Scene key="design" component={Design} title='Art & Design' hideNavBar={false} navigationBarStyle={styles.navBar} backButtonImage={require('./assets/back.png')} leftButtonStyle={styles.navbarButton} titleStyle={styles.title} rightButtonImage={require('./assets/butler.png')} onRight={()=> Actions.help()} rightButtonIconStyle={styles.navbarButton} />
           <Scene key="private" component={Private} title='Private Shopping' hideNavBar={false} navigationBarStyle={styles.navBar} backButtonImage={require('./assets/back.png')} leftButtonStyle={styles.navbarButton} titleStyle={styles.title} rightButtonImage={require('./assets/butler.png')} onRight={()=> Actions.help()} rightButtonIconStyle={styles.navbarButton} />
-          <Scene key="luxury" component={Luxury} title='Luxury' hideNavBar={false} navigationBarStyle={styles.navBar} backButtonImage={require('./assets/back.png')} leftButtonStyle={styles.navbarButton} titleStyle={styles.title} rightButtonImage={require('./assets/butler.png')} onRight={()=> Actions.help()} rightButtonIconStyle={styles.navbarButton} />
+          <Scene key="multibrands" component={MultiBrands} title='MultiBrands' hideNavBar={false} navigationBarStyle={styles.navBar} backButtonImage={require('./assets/back.png')} leftButtonStyle={styles.navbarButton} titleStyle={styles.title} rightButtonImage={require('./assets/butler.png')} onRight={()=> Actions.help()} rightButtonIconStyle={styles.navbarButton} />
           <Scene key="shopKids" component={ShopKids} title='Kids' hideNavBar={false} navigationBarStyle={styles.navBar} backButtonImage={require('./assets/back.png')} leftButtonStyle={styles.navbarButton} titleStyle={styles.title} rightButtonImage={require('./assets/butler.png')} onRight={()=> Actions.help()} rightButtonIconStyle={styles.navbarButton} />
           <Scene key="pets" component={Pets} title='Pets' hideNavBar={false} navigationBarStyle={styles.navBar} backButtonImage={require('./assets/back.png')} leftButtonStyle={styles.navbarButton} titleStyle={styles.title} rightButtonImage={require('./assets/butler.png')} onRight={()=> Actions.help()} rightButtonIconStyle={styles.navbarButton} />
           <Scene key="cocktails" component={Cocktails} title='Cocktail Bars' hideNavBar={false} navigationBarStyle={styles.navBar} backButtonImage={require('./assets/back.png')} leftButtonStyle={styles.navbarButton} titleStyle={styles.title} rightButtonImage={require('./assets/butler.png')} onRight={()=> Actions.help()} rightButtonIconStyle={styles.navbarButton} />
@@ -131,7 +139,7 @@ class Main extends Component {
           <Scene key="museums" component={Museums} title='Museums' hideNavBar={false} navigationBarStyle={styles.navBar} backButtonImage={require('./assets/back.png')} leftButtonStyle={styles.navbarButton} titleStyle={styles.title} rightButtonImage={require('./assets/butler.png')} onRight={()=> Actions.help()} rightButtonIconStyle={styles.navbarButton} />
           <Scene key="galleries" component={Galleries} title='Galleries' hideNavBar={false} navigationBarStyle={styles.navBar} backButtonImage={require('./assets/back.png')} leftButtonStyle={styles.navbarButton} titleStyle={styles.title} rightButtonImage={require('./assets/butler.png')} onRight={()=> Actions.help()} rightButtonIconStyle={styles.navbarButton} />
           <Scene key="walks" component={Walks} title='Walks & Talks' hideNavBar={false} navigationBarStyle={styles.navBar} backButtonImage={require('./assets/back.png')} leftButtonStyle={styles.navbarButton} titleStyle={styles.title} rightButtonImage={require('./assets/butler.png')} onRight={()=> Actions.help()} rightButtonIconStyle={styles.navbarButton} />
-          <Scene key="festivals" component={Festivals} title='Celebrations and Festivals' hideNavBar={false} navigationBarStyle={styles.navBar} backButtonImage={require('./assets/back.png')} leftButtonStyle={styles.navbarButton} titleStyle={styles.title} rightButtonImage={require('./assets/butler.png')} onRight={()=> Actions.help()} rightButtonIconStyle={styles.navbarButton} />
+          <Scene key="smallmuseums" component={SmallMuseums} title='Small Yet Awesome' hideNavBar={false} navigationBarStyle={styles.navBar} backButtonImage={require('./assets/back.png')} leftButtonStyle={styles.navbarButton} titleStyle={styles.title} rightButtonImage={require('./assets/butler.png')} onRight={()=> Actions.help()} rightButtonIconStyle={styles.navbarButton} />
         </Scene>
       </Router>
     );
