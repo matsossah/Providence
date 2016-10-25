@@ -4,7 +4,7 @@ export default [
     image: require('../../assets/caillebotte.png'),
     subtitle: 'Terroir',
     address: '8, rue Hippolyte Lebas',
-    opened: 'From 12:30pm to 2:30pm and from 7:30pm to 10:30pm\nClosed Saturday and Sunday',
+    opened: 'Monday: 12:30PM - 2:30PM & 7:30PM - 10:30PM\nTuesday: 12:30PM - 2:30PM & 7:30PM - 10:30PM\nWednesday: 12:30PM - 2:30PM & 7:30PM - 10:30PM\nThursday: 12:30PM - 2:30PM & 7:30PM - 10:30PM\nFriday: 12:30PM - 2:30PM & 7:30PM - 10:30PM\nSaturday: Closed\nSunday: Closed',
     description: 'The hip younger brother of Pantruche (Scandinavian furniture, a marble bar, a cool playlist…), Caillebotte straddles the line between a terroir and a foodie philosophy. Mouthwatering little dishes come out of the kitchen/atelier that’s run from a distance by Franck Baranger',
     price: 'From 16€ to 35€',
     price_tag: '€',
@@ -15,7 +15,7 @@ export default [
     image: require('../../assets/maloka.png'),
     subtitle: 'Tropical',
     address: '28, rue de la Tour d\'Auvergne',
-    opened: 'From noon to 2:30pm (Saturday) and from 6pm to 11pm\nClosed Sunday and Monday',
+    opened: 'Monday: Closed\nTuesday: 6PM - 11PM\nWednesday: 6PM - 11PM\nThursday: 6PM - 11PM\nFriday: 6PM - 11PM\nSaturday: Noon - 2:30PM & 6PM - 11PM\nSunday: Closed',
     description: 'The Brazilian chef Raphaël Régo has changed his Oka to Maloka — “Your house” in the language of Chief Raoni — before opening up a new Oka in the 5th arrondissement. Woven straw walls, oversewn leather seats, gossamer-like suspension lamps, the restaurant with 18 covers has been given a fresh new look by Caroline Tessier (Akramé). And everything on the plates is 100% tropical',
     price: 'From 36€ to 50€',
     price_tag: '€€',
@@ -26,7 +26,7 @@ export default [
     image: require('../../assets/jean.png'),
     subtitle: 'Basque - Neo Bistro',
     address: '27, rue Malar, 75007 Paris',
-    opened: 'From noon to 2pm and from 7pm to midnight\nClosed Sunday and Monday',
+    opened: 'Monday: Closed\nTuesday: Noon - 2PM & 7PM - 12AM\nWednesday: Noon - 2PM & 7PM - 12AM\nThursday: Noon - 2PM & 7PM - 12AM\nFriday: Noon - 2PM & 7PM - 12AM\nSaturday: Noon - 2PM & 7PM - 12AM\nSunday: Closed',
     description: 'A Mexican luchador mask in one corner, very olé-olé drawings of Batman and Robin in the bathrooms, four-handed illustrations done by Siné and Geluck on a tea towel, suspended lamps…. An eccentric bistro if there ever was one, L’Ami Jean also has another key characteristic: the rants coming from the owner/chef, Stéphane Jego, who you’ll find in the kitchen at the back of the room. A frenzy of gargantuan portions (the prices reflect the serving sizes) on a long lunch menu',
     price: 'Menus from 42€ to 78€',
     price_tag: '€€',
@@ -37,13 +37,12 @@ export default [
     image: require('../../assets/hugo.png'),
     subtitle: 'Meats',
     address: '28, rue du Docteur Blanche, 75016 Paris',
-    opened: 'From 11:30am to 3:30pm\nClosed Sunday and Monday',
+    opened: 'Monday: Closed\nTuesday: Noon - 2:30PM & 7PM - 10:30PM\nWednesday: Noon - 2:30PM & 7PM - 10:30PM\nThursday: Noon - 2:30PM & 7PM - 10:30PM\nFriday: Noon - 2:30PM & 7PM - 10:30PM\nSaturday: Noon - 2:30PM & 7PM - 10:30PM\nSunday: Noon - 2:30PM & 7PM - 10:30PM',
     description: 'From the butcher’s block to the plate, Hugo Desnoyer’s method deserves a golden Bone. Attached to his butcher shop, where all of the 16th comes to shop, there are eighteen seats available for you to dine on the superior meats, each over 200 grams: the magical cuts of meat are prepared fresh and cooked carefully, full of tenderness, flavor and juices, served with seasonal vegetables, new potatoes or homemade fries',
     price: '36€ to 50€',
     price_tag: '€€',
     reservation: true,
   },
 ];
-
 
 
