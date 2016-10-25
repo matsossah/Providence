@@ -31,7 +31,7 @@ class Shopping extends Component {
       >
         <Category text="MULTIBRANDS" image={require('../../assets/luxury.png')} onPress={()=> Actions.multibrands()}/>
         <Category text="MEN ONLY" image={require('../../assets/men.png')} onPress={()=> Actions.men()}/>
-        <Category text="CONCEPT STORES" image={require('../../assets/concept.png')} onPress={()=> Actions.concept()}/>
+        <Category text="CONCEPT STORES" image={require('../../assets/brokenArm.png')} onPress={()=> Actions.concept()}/>
         <Category text="TECH LOVERS" image={require('../../assets/tech.png')} onPress={()=> Actions.tech()}/>
         {
          //<Category text="PRIVATE SHOPPING" image={require('../../assets/private.png')} onPress={()=> Actions.private()}/>

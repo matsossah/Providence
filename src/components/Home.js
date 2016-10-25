@@ -12,14 +12,15 @@ const styles = StyleSheet.create({
     marginTop: 60,
     backgroundColor: '#D0BA7F',
   },
-
   wideIcon: {
     height: 30,
     width: 50,
     marginBottom: 5,
   },
-  hotelInfo: {
-    backgroundColor: '#28342b',
+  tallIcon: {
+    height: 33,
+    width: 28.875,
+    marginBottom: 5,
   },
   partyIcon: {
     height: 35,
@@ -48,7 +49,7 @@ class Home extends Component {
         style={styles.scrollView}
         showsVerticalScrollIndicator={false}
       >
-        <Category text="HOTEL INFO & SERVICES" textStyle={{color: '#D0BA7F'}} style={styles.hotelInfo} icon={require('../assets/hotelIcon.png')} onPress={()=> Actions.hotelinfo()}/>
+        <Category text="YOUR HOTEL" image={require('../assets/hotel.png')} textStyle={{color: '#D0BA7F'}} icon={require('../assets/goldIcon.png')} onPress={()=> Actions.hotelinfo()} iconStyle={styles.tallIcon}/>
         <Category text="EXPERIENCES" image={require('../assets/experiences.png')} icon={require('../assets/experiences_icon.png')} onPress={()=> Actions.experiences()}/>
         <Category text="SHOPPING" image={require('../assets/shopping.png')} icon={require('../assets/shopping_icon.png')} onPress={()=> Actions.shopping()}/>
         <Category text="FOOD" image={require('../assets/food.png')} icon={require('../assets/food_icon.png')} onPress={()=> Actions.food()} iconStyle={styles.foodIcon}/>

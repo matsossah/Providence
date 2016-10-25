@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { StyleSheet, View, Text, TextInput, TouchableOpacity, Image, Dimensions } from 'react-native';
 import { Actions } from 'react-native-router-flux';
+// import firebase from 'firebase';
 import Signup from './Signup';
 import Login from './Login';
 
@@ -75,6 +76,9 @@ const styles = StyleSheet.create({
     borderRadius: (Dimensions.get('window').height / 3) / 2,
   },
 });
+
+// var storage = firebase.storage();
+// var pathReference = storage.ref('badge.png');
 
 class Home extends Component {
   constructor() {

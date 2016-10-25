@@ -1,6 +1,6 @@
 export default [
   {
-    title: 'La Caillebotte',
+    title: 'Caillebotte',
     image: require('../../assets/caillebotte.png'),
     subtitle: 'Terroir',
     address: '8, rue Hippolyte Lebas',

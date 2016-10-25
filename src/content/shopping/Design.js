@@ -13,7 +13,7 @@ export default [
   },
   {
     name: 'Hello Hello Burger',
-    image: require('../../assets/concept.png'),
+    image: require('../../assets/museums.png'),
     type: 'French Food',
     address: '110 galerie de Valois - 75001 Paris',
     Opened: 'Tuesday to Saturday\nLunch from Noon to 2:30PM\nDinner from 7PM to 10:30PM',
@@ -37,7 +37,7 @@ export default [
   },
   {
     name: 'Hello Hello Burger',
-    image: require('../../assets/concept.png'),
+    image: require('../../assets/museums.png'),
     type: 'French Food',
     address: '110 galerie de Valois - 75001 Paris',
     Opened: 'Tuesday to Saturday\nLunch from Noon to 2:30PM\nDinner from 7PM to 10:30PM',

@@ -3,7 +3,7 @@ import { Text, View, Image, StyleSheet, TouchableWithoutFeedback, Dimensions } f
 
 const styles = StyleSheet.create({
   category: {
-    height: Dimensions.get('window').height / 4.4,
+    height: Dimensions.get('window').height / 3.3,
     width: Dimensions.get('window').width,
   },
   button: {
@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
   },
   categoryImage: {
     flex: 1,
-    height: Dimensions.get('window').height / 6,
+    height: Dimensions.get('window').height / 3.3,
     width: Dimensions.get('window').width,
     justifyContent: 'center',
     alignItems: 'center',
@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
   },
   backdropView: {
     flex: 1,
-    height: Dimensions.get('window').height / 6,
+    height: Dimensions.get('window').height / 3.3,
     width: Dimensions.get('window').width,
     justifyContent: 'center',
     alignItems: 'center',
