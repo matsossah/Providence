@@ -3,6 +3,7 @@ import { StyleSheet, View, Text, TextInput, TouchableOpacity, Image, ScrollView,
 import { Actions } from 'react-native-router-flux';
 import ReservationImage from '../common/ReservationImage';
 import Category from '../common/Category';
+import RNCarousel from '../common/Carousel';
 import DatePicker from 'react-native-datepicker';
 
 const styles = StyleSheet.create({
@@ -95,20 +96,26 @@ class Show extends Component {
     };
   }
   render() {
+    console.log('hello');
     return (
     <View style={styles.container}>
       <ScrollView
         style={styles.scrollView}
         showsVerticalScrollIndicator={false}
       >
-        {this.props.item.reservation ?
-          <View style={styles.header}>
-            <ReservationImage image={this.props.item.image} onPress={()=> Actions.reservation({item: this.props.item, title: 'Reservation Info'})} />
-          </View>
-        :
-          <View style={styles.header}>
-            <Category image={this.props.item.image} onPress={console.log('hello')} />
-          </View>
+        <RNCarousel
+          firstImage={this.props.item.image}
+        />
+        {
+          //this.props.item.reservation ?
+          //   <View style={styles.header}>
+          //     <ReservationImage image={this.props.item.image} onPress={()=> Actions.reservation({item: this.props.item, title: 'Reservation Info'})} />
+          //   </View>
+          // :
+          //   <View style={styles.header}>
+          //     <Category image={this.props.item.image} onPress={console.log('hello')} />
+          //   </View>
+          //
         }
         <View style={styles.body}>
           <Text style={styles.title}>{this.props.item.title}</Text>
@@ -122,6 +129,7 @@ class Show extends Component {
           <Text style={styles.section}>* Prices *</Text>
           <Text style={styles.info}>{this.props.item.price}</Text>
         </View>
+
       </ScrollView>
       {this.props.item.reservation && <TouchableOpacity
         style={styles.submit}
