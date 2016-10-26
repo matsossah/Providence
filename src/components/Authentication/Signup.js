@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import { View, Text, TextInput, Image, StyleSheet } from 'react-native';
+import { View, Text, TextInput, Image, StyleSheet, Dimensions} from 'react-native';
 import firebase from 'firebase';
 import formStyles from '../FormStyles';
 import Button from '../../common/Button';
@@ -29,24 +29,31 @@ const styles = StyleSheet.create({
   separatorText: {
     marginTop: 20,
     marginBottom: 20,
-    color: 'white',
+    color: '#D0BA7F',
     fontSize: 10,
+    fontWeight: 'bold',
   },
   signupButton: {
     marginTop: 20,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'white',
-    borderWidth: 1,
-    borderColor: '#D0BA7F',
+    backgroundColor: '#D0BA7F',
     width: 250,
     height: 50,
     borderRadius: 25,
   },
-  loginTextStyle: {
-    color: '#D0BA7F',
+  signupTextStyle: {
+    color: 'white',
     fontSize: 16,
     fontWeight: 'bold',
+  },
+  backdropView: {
+    flex: 1,
+    height: Dimensions.get('window').height,
+    width: Dimensions.get('window').width,
+    backgroundColor: 'rgba(0,0,0,0.2)',
+    justifyContent: 'flex-start',
+    alignItems: 'center',
   },
 });
 
@@ -105,47 +112,57 @@ class Signup extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Button buttonStyle={styles.facebookButton} text={'Connect with Facebook'} textStyle={styles.facebookTextStyle} />
-        <Text style={styles.separatorText}>------- Sign up with your email -------</Text>
-        <TextInput
-          autoCorrect={false}
-          autoFocus={true}
-          style={formStyles.input}
-          autoCapitalize="none"
-          placeholder={"Email address"}
-          placeholderTextColor="#D0BA7F"
-          onChangeText={this.updateEmail}
-          value={this.state.email}
-          returnKeyType="next"
-          onSubmitEditing={() => {
-            this.refs.SecondInput.focus();
-          }}
-        />
-        <TextInput
-          ref="SecondInput"
-          secureTextEntry
-          style={formStyles.input}
-          placeholder={"Password"}
-          placeholderTextColor="#D0BA7F"
-          onChangeText={this.updatePassword}
-          value={this.state.password}
-          onSubmitEditing={() => {
-            this.refs.ThirdInput.focus();
-          }}
-          returnKeyType="next"
-        />
-        <TextInput
-          ref="ThirdInput"
-          secureTextEntry
-          style={formStyles.input}
-          placeholder={"Password Confirmation"}
-          placeholderTextColor="#D0BA7F"
-            value={this.state.passwordConfirmation}
-            onChangeText={this.updatePasswordConfirmation}
-            onSubmitEditing={this.onSignupPress}
-            returnKeyType="done"
-        />
-        <Button onPress={this.onLoginPress} buttonStyle={styles.signupButton} text={'SIGN UP'} textStyle={styles.loginTextStyle} />
+        <Image
+          style={styles.backdropView}
+          source={require('../../assets/backgroundImage.png')}
+        >
+          <View style={styles.backdropView}>
+            <Button buttonStyle={styles.facebookButton} text={'Connect with Facebook'} textStyle={styles.facebookTextStyle} />
+            <Text style={styles.separatorText}>------- Sign up with your email -------</Text>
+            <TextInput
+              multiline={true}
+              autoCorrect={false}
+              autoFocus={true}
+              style={formStyles.input}
+              autoCapitalize="none"
+              placeholder={"Email address"}
+              placeholderTextColor="rgba(255,255,255, 0.6)"
+              onChangeText={this.updateEmail}
+              value={this.state.email}
+              returnKeyType="next"
+              onSubmitEditing={() => {
+                this.refs.SecondInput.focus();
+              }}
+            />
+            <TextInput
+              multiline={true}
+              ref="SecondInput"
+              secureTextEntry
+              style={formStyles.input}
+              placeholder={"Password"}
+              placeholderTextColor="rgba(255,255,255, 0.6)"
+              onChangeText={this.updatePassword}
+              value={this.state.password}
+              onSubmitEditing={() => {
+                this.refs.ThirdInput.focus();
+              }}
+              returnKeyType="next"
+            />
+            <TextInput
+              multiline={true}
+              ref="ThirdInput"
+              secureTextEntry
+              style={formStyles.input}
+              placeholder={"Password Confirmation"}
+              placeholderTextColor="rgba(255,255,255, 0.6)"
+              value={this.state.passwordConfirmation}
+              onChangeText={this.updatePasswordConfirmation}
+              onSubmitEditing={this.onSignupPress}
+              returnKeyType="done"
+            />
+            <Button onPress={this.onSignupPress} buttonStyle={styles.signupButton} text={'SIGN UP'} textStyle={styles.signupTextStyle} />
+          </View>
+        </Image>
       </View>
     );
   }

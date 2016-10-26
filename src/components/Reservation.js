@@ -150,6 +150,7 @@ class Reservation extends Component {
           <View style={styles.container}>
             <Text style={styles.section}>Please enter a reservation name</Text>
             <TextInput
+              multiline={true}
               autoCorrect={false}
               style={formStyles.input}
               autoFocus={true}

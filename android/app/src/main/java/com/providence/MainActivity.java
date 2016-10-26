@@ -1,6 +1,9 @@
 package com.providence;
 
 import com.facebook.react.ReactActivity;
+import com.oblador.vectoricons.VectorIconsPackage;
+import com.airbnb.android.react.maps.MapsPackage;
+import com.devfd.RNGeocoder.RNGeocoderPackage;
 
 public class MainActivity extends ReactActivity {
 

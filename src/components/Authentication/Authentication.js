@@ -4,11 +4,11 @@ import { Actions } from 'react-native-router-flux';
 // import firebase from 'firebase';
 import Signup from './Signup';
 import Login from './Login';
+import Button from '../../common/Button';
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#D0BA7F',
     alignSelf: 'stretch',
     justifyContent: 'center',
     alignItems: 'center',
@@ -16,30 +16,10 @@ const styles = StyleSheet.create({
   header: {
     flex: 1,
     alignSelf: 'stretch',
-    justifyContent: 'flex-end',
-    alignItems: 'center',
-    paddingBottom: 20,
-  },
-  imageBox: {
-    flex: 2,
-    alignSelf: 'stretch',
-    justifyContent: 'flex-start',
-    alignItems: 'center',
-  },
-  footer: {
-    flex: 1,
-    flexDirection: 'row',
-    alignSelf: 'stretch',
-    justifyContent: 'flex-end',
-    alignItems: 'center',
-  },
-  login: {
-    flex: 1,
-    alignSelf: 'stretch',
     justifyContent: 'center',
     alignItems: 'center',
   },
-  signup: {
+  footer: {
     flex: 1,
     alignSelf: 'stretch',
     justifyContent: 'center',
@@ -48,32 +28,49 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 14,
     color: 'white',
-  },
-  label: {
-    fontSize: 12,
-    color: '#D0BA7F',
-    fontWeight: 'bold',
-  },
-  button: {
-    width: 130,
-    height: 35,
-    borderWidth: 2,
-    borderRadius: 17.5,
-    borderColor: 'rgba(255, 255, 255, 0.1)',
-    backgroundColor: 'rgba(255, 255, 255, 0.6)',
-    justifyContent: 'center',
-    alignItems: 'center',
+    backgroundColor: 'transparent',
   },
   hotel: {
     fontSize: 28,
     fontWeight: 'bold',
+    color: '#D0BA7F',
+    backgroundColor: 'transparent',
   },
-  image: {
-    marginTop: 25,
-    marginBottom: 15,
-    width: (Dimensions.get('window').height / 3),
-    height: (Dimensions.get('window').height / 3),
-    borderRadius: (Dimensions.get('window').height / 3) / 2,
+  backdropView: {
+    flex: 1,
+    height: Dimensions.get('window').height,
+    width: Dimensions.get('window').width,
+    backgroundColor: 'rgba(0,0,0,0.2)',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  loginButton: {
+    marginTop: 30,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'white',
+    width: 250,
+    height: 50,
+    borderRadius: 25,
+  },
+  signupButton: {
+    marginTop: 30,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#D0BA7F',
+    width: 250,
+    height: 50,
+    borderRadius: 25,
+  },
+  loginText: {
+    color: '#D0BA7F',
+    fontSize: 16,
+    fontWeight: 'bold',
+  },
+  signupText: {
+    color: 'white',
+    fontSize: 16,
+    fontWeight: 'bold',
   },
 });
 
@@ -87,29 +84,22 @@ class Home extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <View style={styles.header}>
-          <Text style={styles.text}>H  Ô  T  E  L</Text>
-          <Text style={styles.hotel}>P R O V I D E N C E</Text>
-          <Text style={styles.text}>P  A  R  I  S</Text>
-        </View>
-        <View style={styles.imageBox}>
-          <Image
-            style={styles.image}
-            source={require('../../assets/badge.png')}
-          />
-        </View>
-        <View style={styles.footer}>
-          <View style={styles.login}>
-            <TouchableOpacity style={styles.button} onPress={Actions.login}>
-              <Text style={styles.label}>LOGIN</Text>
-            </TouchableOpacity>
+        <Image
+          style={styles.backdropView}
+          source={require('../../assets/backgroundImage.png')}
+        >
+          <View style={styles.backdropView}>
+            <View style={styles.header}>
+              <Text style={styles.text}>H  Ô  T  E  L</Text>
+              <Text style={styles.hotel}>P R O V I D E N C E</Text>
+              <Text style={styles.text}>P  A  R  I  S</Text>
+            </View>
+            <View style={styles.footer}>
+              <Button onPress={Actions.login} buttonStyle={styles.loginButton} text={'LOGIN'} textStyle={styles.loginText} />
+              <Button onPress={Actions.signup} buttonStyle={styles.signupButton} text={'SIGNUP'} textStyle={styles.signupText} />
+            </View>
           </View>
-          <View style={styles.signup}>
-            <TouchableOpacity style={styles.button} onPress={Actions.signup}>
-              <Text style={styles.label}>SIGNUP</Text>
-            </TouchableOpacity>
-          </View>
-        </View>
+        </Image>
       </View>
     );
   }
