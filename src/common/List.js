@@ -20,9 +20,9 @@ class List extends Component {
     this.renderList = this.renderList.bind(this);
   }
   renderList(items) {
-    return items.map(function(item) {
+    return items.map(function(item, key) {
       return(
-        <ListItem title={item.title} price={item.price_tag} address={item.address} image={item.image} onPress={()=> Actions.show({item: item})}/>
+        <ListItem title={item.title} key={key} price={item.price_tag} address={item.address} image={item.image} onPress={()=> Actions.show({item: item})}/>
       );
     });
   }

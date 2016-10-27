@@ -1,10 +1,12 @@
 import React, { Component, PropTypes } from 'react';
-import { StyleSheet, View, Text, TextInput, TouchableOpacity, Image, ScrollView, Dimensions } from 'react-native';
+import { StyleSheet, View, Text, TextInput, TouchableOpacity, Image, ScrollView, Dimensions, Linking, Platform } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import ReservationImage from '../common/ReservationImage';
 import Category from '../common/Category';
 import RNCarousel from '../common/Carousel';
+import Icon from '../common/Icon';
 import DatePicker from 'react-native-datepicker';
+import Communications from 'react-native-communications';
 
 const styles = StyleSheet.create({
   scrollView: {
@@ -19,11 +21,13 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end',
     alignItems: 'center',
   },
-  header: {
-    flex: 1,
+  icons: {
+    flexDirection: 'row',
     alignSelf: 'stretch',
-    justifyContent: 'flex-end',
+    justifyContent: 'space-around',
     alignItems: 'center',
+    marginTop: 20,
+    marginBottom: 20,
   },
   body: {
     paddingLeft: 10,
@@ -70,6 +74,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  icon: {
+    width: Dimensions.get('window').width / 6,
+    height: Dimensions.get('window').width / 6,
+    borderRadius: Dimensions.get('window').width / 12,
+  },
   hotel: {
     fontSize: 28,
     fontWeight: 'bold',
@@ -89,14 +98,23 @@ const styles = StyleSheet.create({
 });
 
 class Show extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      datetime: '',
+      uberURL: 'uber://?client_id=eJCfG86Rz&action=setPickup&dropoff[latitude]=' + this.props.item.lat + '&dropoff[longitude]=' + this.props.item.long + '&dropoff[nickname]=' + this.props.item.title,
+      appleMapsWalkingURL: 'http://maps.apple.com/?daddr=' + this.props.item.lat + ',' + this.props.item.long + '&dirflg=w',
+      appleMapsTransitURL: 'http://maps.apple.com/?daddr=' + this.props.item.lat + ',' + this.props.item.long + '&dirflg=r',
+      gmapsWalkingURL: 'comgooglemaps://?daddr=' + this.props.item.lat + ',' + this.props.item.long + '&directionsmode=walking',
+      gmapsTransitURL: 'comgooglemaps://?daddr=' + this.props.item.lat + ',' + this.props.item.long + '&directionsmode=transit',
+      isUberInstalled: false,
     };
   }
+  componentWillMount() {
+    Linking.canOpenURL(this.state.uberURL).then(isUberInstalled => {
+        this.setState({ isUberInstalled });
+    });
+  }
   render() {
-    console.log('hello');
     return (
     <View style={styles.container}>
       <ScrollView
@@ -117,6 +135,23 @@ class Show extends Component {
           //   </View>
           //
         }
+        <View style={styles.icons}>
+          {(Platform.os === 'ios') ?
+            <Icon onPress={() => Linking.openURL(this.state.appleMapsWalkingURL)} image={require('../assets/walk.png')} iconStyle={styles.icon} />
+          :
+            <Icon onPress={() => Linking.openURL(this.state.gmapsWalkingURL)} image={require('../assets/walk.png')} iconStyle={styles.icon} />
+          }
+          {(this.state.isUberInstalled) ?
+            <Icon onPress={() => Linking.openURL(this.state.uberURL)} image={require('../assets/uber.png')} iconStyle={styles.icon} />
+          :
+            <Icon onPress={() => Communications.phonecall('+33141276699', true)} image={require('../assets/taxi.png')} iconStyle={styles.icon} />
+          }
+          {(Platform.os === 'ios') ?
+            <Icon onPress={() => Linking.openURL(this.state.appleMapsTransitURL)} image={require('../assets/public.png')} iconStyle={styles.icon} />
+          :
+            <Icon onPress={() => Linking.openURL(this.state.gmapsTransitURL)} image={require('../assets/walk.png')} iconStyle={styles.icon} />
+          }
+        </View>
         <View style={styles.body}>
           <Text style={styles.title}>{this.props.item.title}</Text>
           <Text style={styles.subtitle}>{this.props.item.subtitle}</Text>

@@ -30,7 +30,6 @@ class RNCarousel extends Component {
     super();
   }
   render() {
-    console.log('carousel');
     return (
       <Carousel width={Dimensions.get('window').width} animate={false} hideIndicators={true}>
         <View style={styles.container}>
