@@ -3,7 +3,9 @@ import {
   Platform,
   StatusBar,
   StyleSheet,
+  Keyboard,
 } from 'react-native';
+import dismissKeyboard from 'dismissKeyboard';
 import firebase from 'firebase';
 
 import { Router, Scene, Actions } from 'react-native-router-flux';
@@ -94,16 +96,21 @@ class Main extends Component {
     if (Platform.OS === 'ios') {
       StatusBar.setBarStyle('light-content');
     }
+    this.popDismiss = this.popDismiss.bind(this);
+  }
+  popDismiss() {
+    Actions.pop();
+    dismissKeyboard();
   }
   render() {
     return (
       <Router>
         <Scene key="root">
           <Scene key="authentication" component={Authentication} hideNavBar={true}/>
-          <Scene key="signup" component={Signup} panHandlers={null} direction="vertical" title='Sign Up' hideNavBar={false} hideBackImage={true} backTitle={'CANCEL'} navigationBarStyle={styles.navBar} backButtonTextStyle={styles.backButton} titleStyle={styles.title}/>
-          <Scene key="login" component={Login} panHandlers={null} direction="vertical" title='Login' hideNavBar={false} hideBackImage={true} backTitle={'CANCEL'} navigationBarStyle={styles.navBar} backButtonTextStyle={styles.backButton} titleStyle={styles.title}/>
+          <Scene key="signup" onBack={()=> this.popDismiss()} component={Signup} panHandlers={null} direction="vertical" title='Sign Up' hideNavBar={false} hideBackImage={true} backTitle={'CANCEL'} navigationBarStyle={styles.navBar} backButtonTextStyle={styles.backButton} titleStyle={styles.title}/>
+          <Scene key="login" onBack={()=> this.popDismiss()} component={Login} panHandlers={null} direction="vertical" title='Login' hideNavBar={false} hideBackImage={true} backTitle={'CANCEL'} navigationBarStyle={styles.navBar} backButtonTextStyle={styles.backButton} titleStyle={styles.title}/>
           <Scene key="help" direction="vertical" panHandlers={null} component={Help} title='Help' hideNavBar={false} backButtonImage={require('./assets/hamburger.png')} onBack={()=> Actions.authentication()} rightButtonImage={require('./assets/close.png')} onRight={()=> Actions.pop()} leftButtonStyle={styles.navbarButton} rightButtonIconStyle={styles.navbarButton} navigationBarStyle={styles.navBar} titleStyle={styles.homeTitle}/>
-          <Scene key="reservation" direction="vertical" panHandlers={null} component={Reservation} title='Reservation' hideNavBar={false} backButtonImage={require('./assets/hamburger.png')} onBack={()=> Actions.authentication()} rightButtonImage={require('./assets/close.png')} onRight={()=> Actions.pop()} leftButtonStyle={styles.navbarButton} rightButtonIconStyle={styles.navbarButton} navigationBarStyle={styles.navBar} titleStyle={styles.homeTitle}/>
+          <Scene key="reservation" direction="vertical" panHandlers={null} component={Reservation} title='Reservation' hideNavBar={false} backButtonImage={require('./assets/hamburger.png')} onBack={()=> Actions.authentication()} rightButtonImage={require('./assets/close.png')} onRight={()=> this.popDismiss()} leftButtonStyle={styles.navbarButton} rightButtonIconStyle={styles.navbarButton} navigationBarStyle={styles.navBar} titleStyle={styles.homeTitle}/>
           <Scene key="show" component={Show} title='Info' hideNavBar={false} navigationBarStyle={styles.navBar} backButtonImage={require('./assets/back.png')} leftButtonStyle={styles.navbarButton} titleStyle={styles.title} rightButtonImage={require('./assets/location.png')} onRight={()=> Actions.help()} rightButtonIconStyle={styles.tallNavbarButton}/>
           <Scene key="home" direction="vertical" panHandlers={null} component={Home} title='PROVIDENCE' hideNavBar={false} backButtonImage={require('./assets/hamburger.png')} onBack={()=> Actions.home()} leftButtonStyle={styles.navbarButton} rightButtonImage={require('./assets/location.png')} onRight={()=> Actions.help()} rightButtonIconStyle={styles.tallNavbarButton} navigationBarStyle={styles.navBar} titleStyle={styles.homeTitle}/>
           <Scene key="hotelinfo" component={HotelInfo} title='Info & Services' hideNavBar={false} navigationBarStyle={styles.navBar} backButtonImage={require('./assets/back.png')} leftButtonStyle={styles.navbarButton} titleStyle={styles.title} rightButtonImage={require('./assets/location.png')} onRight={()=> Actions.help()} rightButtonIconStyle={styles.tallNavbarButton} />
