@@ -149,7 +149,7 @@ class Show extends Component {
           {(Platform.os === 'ios') ?
             <Icon onPress={() => Linking.openURL(this.state.appleMapsTransitURL)} image={require('../assets/public.png')} iconStyle={styles.icon} />
           :
-            <Icon onPress={() => Linking.openURL(this.state.gmapsTransitURL)} image={require('../assets/walk.png')} iconStyle={styles.icon} />
+            <Icon onPress={() => Linking.openURL(this.state.gmapsTransitURL)} image={require('../assets/public.png')} iconStyle={styles.icon} />
           }
         </View>
         <View style={styles.body}>
