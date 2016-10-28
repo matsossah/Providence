@@ -1,27 +1,29 @@
 import React, { Component, PropTypes } from 'react';
-import { StyleSheet, View, Text, ScrollView, TextInput, TouchableWithoutFeedback, TouchableOpacity, Dimensions } from 'react-native';
+import { StyleSheet, View, Text, ScrollView, TextInput, TouchableWithoutFeedback, TouchableOpacity, Dimensions, Keyboard } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import Category from '../common/Category';
 import formStyles from './FormStyles';
 import DatePicker from 'react-native-datepicker';
 import Communications from 'react-native-communications';
+import dismissKeyboard from 'dismissKeyboard';
+
 
 const styles = StyleSheet.create({
   scrollView: {
     flex: 1,
     marginTop: 60,
+    backgroundColor: '#F4E7CD',
   },
   container: {
     flex: 1,
+    backgroundColor: '#F4E7CD',
     alignSelf: 'stretch',
-    justifyContent: 'flex-end',
+    justifyContent: 'flex-start',
     alignItems: 'center',
   },
   options: {
     alignSelf: 'stretch',
     flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
     flexWrap: 'wrap',
   },
   option: {
@@ -74,8 +76,8 @@ const styles = StyleSheet.create({
   },
   section: {
     fontSize: 16,
+    fontWeight: 'bold',
     color: '#D0BA7F',
-    fontStyle: 'italic',
     marginTop: 30,
     marginBottom: 20,
   },
@@ -115,9 +117,15 @@ class Reservation extends Component {
 
     this.renderOptions = this.renderOptions.bind(this);
     this.updateName = this.updateName.bind(this);
+    this.handleKeyDown = this.handleKeyDown.bind(this);
   }
   updateName(text) {
     this.setState({ name: text });
+  }
+  handleKeyDown(e) {
+    if(e.nativeEvent.key === "Enter"){
+        dismissKeyboard();
+    }
   }
   renderOptions(options) {
     return options.map(function(option) {
@@ -152,17 +160,14 @@ class Reservation extends Component {
             <TextInput
               multiline={true}
               autoCorrect={false}
-              style={formStyles.input}
-              autoFocus={true}
+              style={formStyles.reservationInput}
               color="#D0BA7F"
               placeholder={"Your name"}
-              placeholderTextColor="#D0BA7F"
+              placeholderTextColor="rgba(208,186,127, 0.6)"
               onChangeText={this.updateName}
               value={this.state.name}
-              // returnKeyType={"next"}
-              // onSubmitEditing={() => {
-              //   this.refs.SecondInput.focus();
-              // }}
+              returnKeyType="done"
+              onKeyPress={this.handleKeyDown}
             />
             <Text style={styles.section}>Please select the number of attendees</Text>
             <View style={styles.options}>
