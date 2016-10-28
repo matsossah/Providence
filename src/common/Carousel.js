@@ -31,7 +31,7 @@ class RNCarousel extends Component {
   }
   render() {
     return (
-      <Carousel width={Dimensions.get('window').width} animate={false} hideIndicators={true}>
+      <Carousel width={Dimensions.get('window').width} animate={false} indicatorSize={25} indicatorSpace={15} indicatorColor="#D0BA7F" inactiveIndicatorColor="white" indicatorOffset={0} indicatorAtBottom={true}>
         <View style={styles.container}>
           <Image style={styles.image} source={this.props.firstImage} />
         </View>

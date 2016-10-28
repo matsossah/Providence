@@ -4,7 +4,7 @@ import { Actions } from 'react-native-router-flux';
 import ReservationImage from '../common/ReservationImage';
 import Category from '../common/Category';
 import RNCarousel from '../common/Carousel';
-import Icon from '../common/Icon';
+import ClickableImage from '../common/ClickableImage';
 import DatePicker from 'react-native-datepicker';
 import Communications from 'react-native-communications';
 
@@ -12,11 +12,11 @@ const styles = StyleSheet.create({
   scrollView: {
     flex: 1,
     marginTop: 60,
-    backgroundColor: '#F9F5ED',
+    backgroundColor: '#F4E7CD',
   },
   container: {
     flex: 1,
-    backgroundColor: '#F9F5ED',
+    backgroundColor: '#F4E7CD',
     alignSelf: 'stretch',
     justifyContent: 'flex-end',
     alignItems: 'center',
@@ -26,7 +26,6 @@ const styles = StyleSheet.create({
     alignSelf: 'stretch',
     justifyContent: 'space-around',
     alignItems: 'center',
-    marginTop: 20,
     marginBottom: 20,
   },
   body: {
@@ -75,9 +74,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   icon: {
-    width: Dimensions.get('window').width / 6,
+    width: Dimensions.get('window').width / 3,
     height: Dimensions.get('window').width / 6,
-    borderRadius: Dimensions.get('window').width / 12,
+
   },
   hotel: {
     fontSize: 28,
@@ -136,20 +135,20 @@ class Show extends Component {
           //
         }
         <View style={styles.icons}>
-          {(Platform.os === 'ios') ?
-            <Icon onPress={() => Linking.openURL(this.state.appleMapsWalkingURL)} image={require('../assets/walk.png')} iconStyle={styles.icon} />
-          :
-            <Icon onPress={() => Linking.openURL(this.state.gmapsWalkingURL)} image={require('../assets/walk.png')} iconStyle={styles.icon} />
-          }
           {(this.state.isUberInstalled) ?
-            <Icon onPress={() => Linking.openURL(this.state.uberURL)} image={require('../assets/uber.png')} iconStyle={styles.icon} />
+            <ClickableImage onPress={() => Linking.openURL(this.state.uberURL)} image={require('../assets/uberLong.png')} imageStyle={styles.icon} />
           :
-            <Icon onPress={() => Communications.phonecall('+33141276699', true)} image={require('../assets/taxi.png')} iconStyle={styles.icon} />
+            <ClickableImage onPress={() => Communications.phonecall('+33141276699', true)} image={require('../assets/taxiLong.png')} imageStyle={styles.icon} />
           }
           {(Platform.os === 'ios') ?
-            <Icon onPress={() => Linking.openURL(this.state.appleMapsTransitURL)} image={require('../assets/public.png')} iconStyle={styles.icon} />
+            <ClickableImage onPress={() => Linking.openURL(this.state.appleMapsWalkingURL)} image={require('../assets/walkLong.png')} imageStyle={styles.icon} />
           :
-            <Icon onPress={() => Linking.openURL(this.state.gmapsTransitURL)} image={require('../assets/public.png')} iconStyle={styles.icon} />
+            <ClickableImage onPress={() => Linking.openURL(this.state.gmapsWalkingURL)} image={require('../assets/walkLong.png')} imageStyle={styles.icon} />
+          }
+          {(Platform.os === 'ios') ?
+            <ClickableImage onPress={() => Linking.openURL(this.state.appleMapsTransitURL)} image={require('../assets/publicLong.png')} imageStyle={styles.icon} />
+          :
+            <ClickableImage onPress={() => Linking.openURL(this.state.gmapsTransitURL)} image={require('../assets/publicLong.png')} imageStyle={styles.icon} />
           }
         </View>
         <View style={styles.body}>
