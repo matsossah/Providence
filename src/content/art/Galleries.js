@@ -2,6 +2,7 @@ export default [
   {
     title: 'Fondation Louis Vuitton',
     image: require('../../assets/vuitton.png'),
+    // image: {uri: 'https://firebasestorage.googleapis.com/v0/b/providence-ee8a2.appspot.com/o/vuitton.png?alt=media'},
     subtitle: 'Galeries & Co',
     address: '8 avenue du Mahatma Gandhi 75016 Paris',
     lat: '48.876659',

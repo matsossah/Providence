@@ -2,7 +2,7 @@ export default [
   {
     name: 'Restaurant du Palais Royal',
     image: require('../../assets/museums.png'),
-    type: 'French Food',
+    subtitle: 'French Food',
     address: '110 galerie de Valois 75001 Paris',
     lat: '48.865517',
     long: '2.338776',
@@ -16,7 +16,7 @@ export default [
   {
     name: 'Hello Hello Burger',
     image: require('../../assets/museums.png'),
-    type: 'French Food',
+    subtitle: 'French Food',
     address: '110 galerie de Valois - 75001 Paris',
     lat: '48.865517',
     long: '2.338776',
@@ -30,7 +30,7 @@ export default [
   {
     name: 'Restaurant du Palais Royal',
     image: require('../../assets/museums.png'),
-    type: 'French Food',
+    subtitle: 'French Food',
     address: '110 galerie de Valois - 75001 Paris',
     lat: '48.865517',
     long: '',
@@ -44,7 +44,7 @@ export default [
   {
     name: 'Hello Hello Burger',
     image: require('../../assets/museums.png'),
-    type: 'French Food',
+    subtitle: 'French Food',
     address: '110 galerie de Valois - 75001 Paris',
     lat: '',
     long: '',

@@ -1,9 +1,5 @@
-import React, { Component, PropTypes } from 'react';
-import { View, Text, TextInput, Image, StyleSheet, ScrollView } from 'react-native';
-import firebase from 'firebase';
-import formStyles from '../FormStyles';
-import Button from '../../common/Button';
-import { Actions } from 'react-native-router-flux';
+import React, { Component } from 'react';
+import { StyleSheet } from 'react-native';
 import AwesomeChefs from '../../content/food/Chefs';
 import List from '../../common/List';
 
@@ -23,9 +19,5 @@ class Chefs extends Component {
   }
 }
 
-// Chefs.propTypes = {
-//   onError: PropTypes.func.isRequired,
-//   onExperiences: PropTypes.func.isRequired,
-// };
-
 export default Chefs;
+

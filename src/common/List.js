@@ -1,9 +1,7 @@
 import React, { Component, PropTypes } from 'react';
-import { View, Text, TextInput, Image, StyleSheet, ScrollView } from 'react-native';
+import { StyleSheet, ScrollView } from 'react-native';
 import ListItem from './ListItem';
 import { Actions } from 'react-native-router-flux';
-import Communications from 'react-native-communications';
-//email: Communications.email(to, cc, bcc, subject, body) Communications.text('0752575184', 'Reservation Test')
 
 const styles = StyleSheet.create({
   scrollView: {

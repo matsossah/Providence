@@ -30,6 +30,9 @@ export default StyleSheet.create({
     flex: 1,
     paddingTop: 100,
   },
+  font: {
+    fontFamily: 'Avenir-light',
+  },
   bottom: {
     flex: 2,
     marginTop: 110,
@@ -51,6 +54,7 @@ export default StyleSheet.create({
     alignSelf: 'center',
     fontSize: 14,
     color: 'white',
+    fontFamily: 'Avenir',
   },
   reservationInput: {
     marginBottom: 10,
@@ -64,11 +68,12 @@ export default StyleSheet.create({
     alignSelf: 'center',
     fontSize: 14,
     color: 'white',
+    fontFamily: 'Avenir',
   },
   label: {
     fontSize: 18,
     color: 'white',
-    fontFamily: 'chalkduster',
+    fontFamily: 'Avenir',
   },
   image: {
     marginTop: 20,

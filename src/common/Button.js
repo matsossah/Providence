@@ -1,16 +1,5 @@
 import React, { PropTypes } from 'react';
-import { Text, StyleSheet, TouchableOpacity } from 'react-native';
-
-const styles = StyleSheet.create({
-  button: {
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  buttonText: {
-    flex: 1,
-    alignSelf: 'center',
-  },
-});
+import { Text, TouchableOpacity } from 'react-native';
 
 function Button(props) {
   const { text, textStyle, buttonStyle, onPress, ...otherProps } = props;

@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import { Text, View, Image, StyleSheet, TouchableWithoutFeedback, Dimensions } from 'react-native';
+import formStyles from './FormStyles';
 
 const styles = StyleSheet.create({
   category: {
@@ -27,23 +28,18 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 14,
   },
-  icon: {
-    height: 30,
-    width: 30,
-    marginBottom: 5,
-  },
   backdropView: {
     flex: 1,
     height: Dimensions.get('window').height / 3.3,
     width: Dimensions.get('window').width,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'rgba(0,0,0,0.5)',
+    backgroundColor: 'rgba(0,0,0,0.2)',
   },
 });
 
 function ReservationImage(props) {
-  const { image, text, onPress, icon, iconStyle, ...otherProps } = props;
+  const { image, onPress, ...otherProps } = props;
   return (
     <TouchableWithoutFeedback
       {...otherProps}
@@ -57,7 +53,7 @@ function ReservationImage(props) {
         >
           <View style={styles.backdropView}>
             <View style={styles.button}>
-              <Text style={styles.categoryTitle}>
+              <Text style={[styles.categoryTitle, formStyles.font]}>
                 MAKE A RESERVATION
               </Text>
             </View>

@@ -1,14 +1,11 @@
 import React, { PropTypes } from 'react';
 import { Text, View, Image, StyleSheet, TouchableWithoutFeedback, Dimensions } from 'react-native';
+import formStyles from './FormStyles';
 
 const styles = StyleSheet.create({
   item: {
     height: Dimensions.get('window').height / 3.3,
     width: Dimensions.get('window').width,
-  },
-  buttonText: {
-    flex: 1,
-    alignSelf: 'center',
   },
   itemImage: {
     flex: 1,
@@ -42,9 +39,9 @@ const styles = StyleSheet.create({
     width: Dimensions.get('window').width,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'rgba(0,0,0,0.5)',
-    borderBottomColor: '#D0BA7F',
-    borderBottomWidth: 2,
+    backgroundColor: 'rgba(0,0,0,0.2)',
+    borderBottomColor: 'black',
+    borderBottomWidth: 1,
   },
   infoBox: {
     flex: 3,
@@ -82,11 +79,11 @@ function ListItem(props) {
           <View style={styles.backdropView}>
             <View style={styles.infoBox}>
             {icon && <Image style={[styles.icon].concat(iconStyle)} source={icon} />}
-              <Text style={styles.title}>{title}</Text>
-              <Text style={styles.address}>{address}</Text>
+              <Text style={[styles.title, formStyles.font]}>{title}</Text>
+              <Text style={[styles.address, formStyles.font]}>{address}</Text>
             </View>
             <View style={styles.priceBox}>
-              <Text style={styles.price}>{price}</Text>
+              <Text style={[styles.price, formStyles.font]}>{price}</Text>
             </View>
           </View>
         </Image>

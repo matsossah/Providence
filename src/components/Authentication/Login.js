@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { View, Text, TextInput, Image, StyleSheet, Dimensions } from 'react-native';
 import firebase from 'firebase';
-import formStyles from '../FormStyles';
+import formStyles from '../../common/FormStyles';
 import Button from '../../common/Button';
 import { Actions } from 'react-native-router-flux';
 
@@ -11,6 +11,14 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-start',
     alignItems: 'center',
     backgroundColor: '#D0BA7F',
+  },
+  backdropView: {
+    flex: 1,
+    height: Dimensions.get('window').height,
+    width: Dimensions.get('window').width,
+    backgroundColor: 'rgba(0,0,0,0.2)',
+    justifyContent: 'flex-start',
+    alignItems: 'center',
   },
   facebookButton: {
     marginTop: 100,
@@ -24,7 +32,6 @@ const styles = StyleSheet.create({
   facebookTextStyle: {
     color: 'white',
     fontSize: 16,
-    fontWeight: 'bold',
   },
   separatorText: {
     marginTop: 20,
@@ -45,15 +52,6 @@ const styles = StyleSheet.create({
   loginTextStyle: {
     color: 'white',
     fontSize: 16,
-    fontWeight: 'bold',
-  },
-  backdropView: {
-    flex: 1,
-    height: Dimensions.get('window').height,
-    width: Dimensions.get('window').width,
-    backgroundColor: 'rgba(0,0,0,0.2)',
-    justifyContent: 'flex-start',
-    alignItems: 'center',
   },
 });
 
@@ -73,24 +71,25 @@ class Login extends Component {
     this.setState({
       loading: true,
     });
-    firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.password).catch(function(error) {
-      // Handle Errors here.
-      if (error) {
-        switch (error.code) {
-          case "auth/wrong-password":
-            console.log("The specified password is not associated with an account.");
-            break;
-          case "auth/user-not-found":
-            console.log("The user was not found ");
-            break;
-          default:
-            console.log("Error creating user:", error);
-            break;
-        }
-      }
-      return;
-    });
     Actions.home();
+    // firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.password).catch(function(error) {
+    //   // Handle Errors here.
+    //   if (error) {
+    //     switch (error.code) {
+    //       case "auth/wrong-password":
+    //         alert("The specified password is not associated with an account");
+    //         return;
+    //       case "auth/user-not-found":
+    //         alert("The user was not found");
+    //         return;
+    //       default:
+    //         alert("Error creating user", error);
+    //         return;
+    //     }
+    //   } else {
+    //     Actions.home();
+    //   }
+    // });
   }
   updateEmail(text) {
     this.setState({ email: text });
@@ -106,8 +105,8 @@ class Login extends Component {
           source={require('../../assets/backgroundImage.png')}
         >
           <View style={styles.backdropView}>
-            <Button buttonStyle={styles.facebookButton} text={'Connect with Facebook'} textStyle={styles.facebookTextStyle} />
-            <Text style={styles.separatorText}>------- Login with your email -------</Text>
+            <Button buttonStyle={styles.facebookButton} text={'Connect with Facebook'} textStyle={[styles.facebookTextStyle, formStyles.font]} />
+            <Text style={[styles.separatorText, formStyles.font]}>------- Login with your email -------</Text>
             <TextInput
               multiline={true}
               autoCorrect={false}
@@ -135,17 +134,12 @@ class Login extends Component {
               onSubmitEditing={this.onLoginPress}
               returnKeyType="done"
             />
-            <Button onPress={this.onLoginPress} buttonStyle={styles.loginButton} text={'LOGIN'} textStyle={styles.loginTextStyle} />
+            <Button onPress={this.onLoginPress} buttonStyle={styles.loginButton} text={'LOGIN'} textStyle={[styles.loginTextStyle, formStyles.font]} />
           </View>
         </Image>
       </View>
     );
   }
 }
-
-// Login.propTypes = {
-//   onError: PropTypes.func.isRequired,
-//   onLogin: PropTypes.func.isRequired,
-// };
 
 export default Login;

@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import { View, Image, TouchableOpacity } from 'react-native';
+import { Image, TouchableOpacity } from 'react-native';
 
 function ClickableImage(props) {
   const { image, imageStyle, onPress, ...otherProps } = props;

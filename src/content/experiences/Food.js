@@ -1,8 +1,8 @@
 export default [
     {
-        title: 'Guided cheese and wine tasting & pairing',
+        title: 'Cheese and wine tasting & pairing',
         image: require('../../assets/tasting.png'),
-        type: 'Tasting',
+        subtitle: 'Tasting',
         address: '39 Rue de Bretagne 75003 Paris',
         lat: '48.862926',
         long: '2.362166',
@@ -17,7 +17,7 @@ export default [
     {
         title: 'A French Breakfast',
         image: require('../../assets/breakfast.png'),
-        type: 'Breakfast',
+        subtitle: 'Breakfast',
         address: '32 rue Vignon 75009 Paris',
         lat: '48.872102',
         long: '2.326773',
@@ -31,7 +31,7 @@ export default [
     {
         title: 'Best of French Patisserie',
         image: require('../../assets/eclair.png'),
-        type: 'Pastries',
+        subtitle: 'Pastries',
         address: '32 rue Vignon 75009 Paris',
         lat: '48.872102',
         long: '2.326773',
@@ -44,7 +44,7 @@ export default [
     {
         title: 'Back from the market',
         image: require('../../assets/market.png'),
-        type: 'Tasting',
+        subtitle: 'Tasting',
         address: '340 rue Sedaine 75011 Paris',
         lat: '48.856867',
         long: '2.374501',

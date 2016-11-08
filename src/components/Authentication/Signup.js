@@ -1,7 +1,7 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import { View, Text, TextInput, Image, StyleSheet, Dimensions} from 'react-native';
 import firebase from 'firebase';
-import formStyles from '../FormStyles';
+import formStyles from '../../common/FormStyles';
 import Button from '../../common/Button';
 import { Actions } from 'react-native-router-flux';
 
@@ -11,6 +11,14 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-start',
     alignItems: 'center',
     backgroundColor: '#D0BA7F',
+  },
+  backdropView: {
+    flex: 1,
+    height: Dimensions.get('window').height,
+    width: Dimensions.get('window').width,
+    backgroundColor: 'rgba(0,0,0,0.2)',
+    justifyContent: 'flex-start',
+    alignItems: 'center',
   },
   facebookButton: {
     marginTop: 100,
@@ -24,7 +32,6 @@ const styles = StyleSheet.create({
   facebookTextStyle: {
     color: 'white',
     fontSize: 16,
-    fontWeight: 'bold',
   },
   separatorText: {
     marginTop: 20,
@@ -45,15 +52,6 @@ const styles = StyleSheet.create({
   signupTextStyle: {
     color: 'white',
     fontSize: 16,
-    fontWeight: 'bold',
-  },
-  backdropView: {
-    flex: 1,
-    height: Dimensions.get('window').height,
-    width: Dimensions.get('window').width,
-    backgroundColor: 'rgba(0,0,0,0.2)',
-    justifyContent: 'flex-start',
-    alignItems: 'center',
   },
 });
 
@@ -86,19 +84,22 @@ class Signup extends Component {
     });
     firebase.auth().createUserWithEmailAndPassword(this.state.email.toLowerCase(), this.state.password).catch(function(error) {
       // Handle Errors here.
-      switch (error.code) {
-        case "auth/email-already-in-use":
-          console.log("The specified email is not a valid email.");
-          return;
-        case "auth/invalid-email":
-          console.log("The specified email is not a valid email.");
-          return;
-        default:
-          console.log("Error creating user:", error);
-          return;
+      if (error) {
+        switch (error.code) {
+          case "auth/email-already-in-use":
+            alert("The specified email is already in use, please use another one");
+            return;
+          case "auth/invalid-email":
+            alert("The specified email is not a valid email");
+            return;
+          default:
+            alert("Error creating user, please retry", error);
+            return;
+        }
+      } else {
+        Actions.home();
       }
     });
-    Actions.home();
   }
   updateEmail(text) {
     this.setState({ email: text });
@@ -117,8 +118,8 @@ class Signup extends Component {
           source={require('../../assets/backgroundImage.png')}
         >
           <View style={styles.backdropView}>
-            <Button buttonStyle={styles.facebookButton} text={'Connect with Facebook'} textStyle={styles.facebookTextStyle} />
-            <Text style={styles.separatorText}>------- Sign up with your email -------</Text>
+            <Button buttonStyle={styles.facebookButton} text={'Connect with Facebook'} textStyle={[styles.facebookTextStyle, formStyles.font]} />
+            <Text style={[styles.separatorText, formStyles.font]}>------- Sign up with your email -------</Text>
             <TextInput
               multiline={true}
               autoCorrect={false}
@@ -160,7 +161,7 @@ class Signup extends Component {
               onSubmitEditing={this.onSignupPress}
               returnKeyType="done"
             />
-            <Button onPress={this.onSignupPress} buttonStyle={styles.signupButton} text={'SIGN UP'} textStyle={styles.signupTextStyle} />
+            <Button onPress={this.onSignupPress} buttonStyle={styles.signupButton} text={'SIGN UP'} textStyle={[styles.signupTextStyle, formStyles.font]} />
           </View>
         </Image>
       </View>

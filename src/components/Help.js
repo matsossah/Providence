@@ -1,7 +1,7 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import { View, Text, TextInput, Image, TouchableOpacity, StyleSheet, Dimensions, Linking } from 'react-native';
 import firebase from 'firebase';
-import formStyles from './FormStyles';
+import formStyles from '../common/FormStyles';
 import Button from '../common/Button';
 import { Actions } from 'react-native-router-flux';
 import MapView from 'react-native-maps';
@@ -35,20 +35,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  concierge: {
-    flex: 1,
-    alignSelf: 'stretch',
-    backgroundColor: '#F4E7CD',
-    paddingLeft: 20,
-    flexDirection: 'row',
-    alignItems: 'flex-end',
-    justifyContent: 'flex-start',
-  },
   options: {
     flex: 2,
     paddingTop: 25,
     paddingBottom: 25,
-    backgroundColor: '#F4E7CD',
+    backgroundColor: '#FAFAFA',
     alignSelf: 'stretch',
     alignItems: 'center',
     justifyContent: 'space-around',
@@ -57,13 +48,6 @@ const styles = StyleSheet.create({
     width: 40,
     height: 40,
     borderRadius: 20,
-  },
-  help: {
-    fontSize: 14,
-    marginBottom: 13,
-    fontWeight: 'bold',
-    color: '#D0BA7F',
-    marginLeft: 20,
   },
   buttonText: {
     fontSize: 18,
@@ -85,7 +69,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: '#17B5BB',
   },
-  uberButton: {
+  transportationButton: {
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#0B2D39',
@@ -136,21 +120,12 @@ class Help extends Component {
           />
         </MapView>
         <View style={styles.footer}>
-          {
-            //<View style={styles.concierge}>
-              //<Image
-                //style={styles.image}
-                //source={require('../assets/concierge.png')}
-              ///>
-              //<Text style={styles.help}>Hello I'm Jack, how can I help you?</Text>
-            //</View>
-          }
           <View style={styles.options}>
-            <Button onPress={() => Communications.phonecall('+33146343404', true)} buttonStyle={styles.button} text={'CALL HOTEL DESK'} textStyle={styles.buttonText} />
+            <Button onPress={() => Communications.phonecall('+33146343404', true)} buttonStyle={styles.button} text={'CALL HOTEL DESK'} textStyle={[styles.buttonText, formStyles.font]} />
             { (this.state.isUberInstalled) ?
-                <Button onPress={() => Linking.openURL(this.state.uberURL)} buttonStyle={styles.uberButton} text={'UBER'} textStyle={styles.uberButtonText} />
+                <Button onPress={() => Linking.openURL(this.state.uberURL)} buttonStyle={styles.transportationButton} text={'UBER'} textStyle={[styles.uberButtonText, formStyles.font]} />
               :
-                <Button onPress={() => Communications.phonecall('+33141276699', true)} buttonStyle={styles.button} text={'FIND A CAB'} textStyle={styles.buttonText} />
+                <Button onPress={() => Communications.phonecall('+33141276699', true)} buttonStyle={styles.transportationButton} text={'FIND A CAB'} textStyle={[styles.buttonText, formStyles.font]} />
             }
           </View>
         </View>
@@ -158,10 +133,5 @@ class Help extends Component {
     );
   }
 }
-
-// Login.propTypes = {
-//   onError: PropTypes.func.isRequired,
-//   onLogin: PropTypes.func.isRequired,
-// };
 
 export default Help;

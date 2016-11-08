@@ -1,8 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import { StyleSheet, View, Image, ScrollView, Dimensions } from 'react-native';
-import { Actions } from 'react-native-router-flux';
-import ReservationImage from '../../common/ReservationImage';
-import DatePicker from 'react-native-datepicker';
 
 const styles = StyleSheet.create({
   scrollView: {
@@ -29,12 +26,6 @@ const styles = StyleSheet.create({
 });
 
 class About extends Component {
-  constructor() {
-    super();
-    this.state = {
-      datetime: '',
-    };
-  }
   render() {
     return (
     <View style={styles.container}>

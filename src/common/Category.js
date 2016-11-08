@@ -1,14 +1,11 @@
 import React, { PropTypes } from 'react';
 import { Text, View, Image, StyleSheet, TouchableWithoutFeedback, Dimensions } from 'react-native';
+import formStyles from './FormStyles';
 
 const styles = StyleSheet.create({
   category: {
     height: Dimensions.get('window').height / 3.3,
     width: Dimensions.get('window').width,
-  },
-  buttonText: {
-    flex: 1,
-    alignSelf: 'center',
   },
   categoryImage: {
     flex: 1,
@@ -19,8 +16,11 @@ const styles = StyleSheet.create({
   },
   categoryTitle: {
     color: 'white',
-    fontWeight: 'bold',
+    fontWeight: '500',
     fontSize: 14,
+    // textShadowOffset: {width: 2, height: 2},
+    // textShadowRadius: 1,
+    // textShadowColor: 'rgba(0,0,0,0.4)',
   },
   icon: {
     height: 30,
@@ -33,9 +33,9 @@ const styles = StyleSheet.create({
     width: Dimensions.get('window').width,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'rgba(0,0,0,0.4)',
-    borderBottomColor: '#D0BA7F',
-    borderBottomWidth: 2,
+    backgroundColor: 'rgba(0,0,0,0.2)',
+    borderBottomColor: 'black',
+    borderBottomWidth: 1,
   },
 });
 
@@ -54,7 +54,7 @@ function Category(props) {
         >
           <View style={[styles.backdropView].concat(style)}>
           {icon && <Image style={[styles.icon].concat(iconStyle)} source={icon} />}
-            <Text style={[styles.categoryTitle].concat(textStyle)}>
+            <Text style={[styles.categoryTitle, formStyles.font].concat(textStyle)}>
               {text}
             </Text>
           </View>

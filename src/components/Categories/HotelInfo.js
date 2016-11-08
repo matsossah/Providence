@@ -1,8 +1,5 @@
-import React, { Component, PropTypes } from 'react';
-import { View, Text, TextInput, Image, StyleSheet, ScrollView, Dimensions } from 'react-native';
-import firebase from 'firebase';
-import formStyles from '../FormStyles';
-import Button from '../../common/Button';
+import React, { Component } from 'react';
+import { StyleSheet, ScrollView, Dimensions } from 'react-native';
 import Category from '../../common/Category';
 import { Actions } from 'react-native-router-flux';
 
@@ -15,14 +12,6 @@ const styles = StyleSheet.create({
 });
 
 class HotelInfo extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      loading: false,
-      email: '',
-      password: '',
-    };
-  }
   render() {
     return (
       <ScrollView
@@ -35,10 +24,5 @@ class HotelInfo extends Component {
     );
   }
 }
-
-// HotelInfo.propTypes = {
-//   onError: PropTypes.func.isRequired,
-//   onExperiences: PropTypes.func.isRequired,
-// };
 
 export default HotelInfo;

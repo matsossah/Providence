@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import { Text, StyleSheet, View, Dimensions, Image } from 'react-native';
+import { StyleSheet, View, Dimensions, Image } from 'react-native';
 import Carousel from 'react-native-carousel';
 import Category from './Category';
 
@@ -11,10 +11,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: 'transparent',
-  },
-  text: {
-    fontSize: 24,
-    color: 'blue',
   },
   image: {
     flex: 1,

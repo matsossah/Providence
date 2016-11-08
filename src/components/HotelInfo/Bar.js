@@ -1,9 +1,6 @@
-import React, { Component, PropTypes } from 'react';
-import { StyleSheet, View, Text, TextInput, TouchableOpacity, Image, ScrollView, Dimensions } from 'react-native';
-import { Actions } from 'react-native-router-flux';
-import ReservationImage from '../../common/ReservationImage';
-import DatePicker from 'react-native-datepicker';
-import Communications from 'react-native-communications';
+import React, { Component } from 'react';
+import { StyleSheet, View, Text, TouchableOpacity, Image, ScrollView, Dimensions } from 'react-native';
+import formStyles from '../../common/FormStyles';
 
 const styles = StyleSheet.create({
   scrollView: {
@@ -51,12 +48,6 @@ const styles = StyleSheet.create({
 
 
 class Bar extends Component {
-  constructor() {
-    super();
-    this.state = {
-      datetime: '',
-    };
-  }
   render() {
     return (
     <View style={styles.container}>
@@ -75,7 +66,7 @@ class Bar extends Component {
         onPress={() => Communications.phonecall('+33146343404', true)}
       >
         <View style={styles.submit}>
-          <Text style={styles.submitText}>
+          <Text style={[styles.submitText, formStyles.font]}>
             ORDER IN
           </Text>
         </View>
